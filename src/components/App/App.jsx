@@ -37,7 +37,6 @@ function App() {
     <Router>
       <div>
         <Nav />
-        <SideBar />
         <Switch>
           {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
           <Redirect exact from="/" to="/home" />
@@ -72,14 +71,11 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute
-            // logged in shows InfoPage else shows LoginPage
             exact
             path="/logout"
           >
             <LogOutRoute />
           </ProtectedRoute>
-
-
 
 
           <Route
