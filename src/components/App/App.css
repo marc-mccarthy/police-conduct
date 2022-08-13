@@ -22,6 +22,7 @@ Container
   padding: 20px;
 }
 
+
 /* --------------------------------------------------------------------------------
 Button
 -------------------------------------------------------------------------------- */
@@ -109,4 +110,34 @@ Form Treatment
 input {
   margin: 5px;
   margin-bottom: 10px;
+}
+
+/* Report */
+
+.report {
+  margin: auto;
+  width: 70%;
+  background-color: #DEDEDE;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.report-form {
+  margin-top: 0;
+  margin-left: 7rem;
+}
+
+.report-content {
+  margin-left: 7rem;
+  margin-right: 7rem;
+}
+
+.report-input {
+  min-width: 100%;
+  max-width: 100%;
+  margin-left: 0;
+}
+
+.report-button {
+  float: right;
 }

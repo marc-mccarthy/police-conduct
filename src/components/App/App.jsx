@@ -19,6 +19,9 @@ import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+import Start from '../AddReport/Start/Start';
+import OfficerDetails from '../AddReport/OfficerDetails/OfficerDetails';
+
 import './App.css';
 import SideBar from '../SideBar/SideBar';
 import LogOutRoute from '../LogOutRoute/LogOutRoute';
@@ -71,11 +74,28 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute
+
+            // logged in shows Add Report (Start) else shows LoginPage
+            exact
+            path="/start"
+          >
+            <Start />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows Add Report (Officer Details) else shows LoginPage
+            exact
+            path="/officer-details"
+          >
+            <OfficerDetails />
+          </ProtectedRoute>
+
             exact
             path="/logout"
           >
             <LogOutRoute />
           </ProtectedRoute>
+
 
 
           <Route
@@ -125,7 +145,7 @@ function App() {
             <h1>404</h1>
           </Route>
         </Switch>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </Router>
   );
