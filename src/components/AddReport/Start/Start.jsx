@@ -76,12 +76,10 @@ function Start() {
     console.log(newStart);
     if(understand === true && verification === true) {
       dispatch({type: 'START_REPORT', payload: newStart});
+      history.push('/officer-details');
     } else {
       alert('You must agree to the data handling and verification.');
     }
-    
-    // TODO: history.push to next page
-    history.push('/officer-details');
   }
 
   return (
