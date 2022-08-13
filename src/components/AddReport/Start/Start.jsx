@@ -1,36 +1,49 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 
-import {Button, Checkbox, FormControlLabel} from '@mui/material';
+import { Button, Checkbox } from '@mui/material';
+
 
 
 function Start() {
 
+  const [anonymous, setAnonymous] = useState(false);
 
+  const handleAnonymous = (e) => {
+    setAnonymous(!anonymous);
+  }
 
   return (
     <div className='report'>
+
       <h2 className='report-form'>Report Form</h2>
+
       <div className='report-content'>
 
-        <h3>Accessability</h3>
+        <h3>Accessibility</h3>
         <p>If you need help completing this form, please email dale.lotts@gmail.com</p>
 
         <h3>Anonymous</h3>
-        {/* <FormControlLabel label="Check this box if you want your report to be filled anonymously" control={<Checkbox />} labelPlacement="right" /> */}
-        <p><Checkbox /> Check this box if you want your report to be filled anonymously</p>
+        <p><Checkbox onChange={handleAnonymous} /> Check this box if you want your report to be filled anonymously</p>
 
-        <p>First name:</p>
-        <input className='report-input'/>
+        {
+          anonymous ?
+            <> </>
+            :
+            <span>
+              <p>First name:</p>
+              <input className='report-input' />
 
-        <p>Last name:</p>
-        <input className='report-input'/>
+              <p>Last name:</p>
+              <input className='report-input' />
 
-        <p>Email:</p>
-        <input className='report-input'/>
+              <p>Email:</p>
+              <input className='report-input' />
 
-        <p>Phone number:</p>
-        <input className='report-input'/>
+              <p>Phone number:</p>
+              <input className='report-input' />
+            </span>
+        }
 
         <h3>Public</h3>
         <p><Checkbox /> Check this box if you want your report to be public</p>
@@ -45,6 +58,7 @@ function Start() {
         <Button className='report-button'>NEXT</Button>
 
       </div>
+
     </div>
   );
 }
