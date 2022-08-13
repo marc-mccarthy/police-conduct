@@ -20,6 +20,8 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 
+import Start from '../AddReport/Start/Start';
+
 import './App.css';
 
 function App() {
@@ -66,6 +68,14 @@ function App() {
             path="/info"
           >
             <InfoPage />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows Add Report (Start) else shows LoginPage
+            exact
+            path="/start"
+          >
+            <Start />
           </ProtectedRoute>
 
           <Route
@@ -115,7 +125,7 @@ function App() {
             <h1>404</h1>
           </Route>
         </Switch>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </Router>
   );
