@@ -8,7 +8,7 @@ import * as TbIcons from "react-icons/tb";
 export const SidebarData = [
   {
     title: 'Add Report',
-    path: '/addReport',
+    path: '/start',
     icon: <TbIcons.TbReportMedical />,
     cName: 'nav-text'
   },

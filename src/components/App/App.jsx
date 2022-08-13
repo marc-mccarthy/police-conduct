@@ -90,6 +90,7 @@ function App() {
             <OfficerDetails />
           </ProtectedRoute>
 
+          <ProtectedRoute
             exact
             path="/logout"
           >
