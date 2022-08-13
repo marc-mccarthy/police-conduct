@@ -118,6 +118,8 @@ input {
   margin: auto;
   width: 70%;
   background-color: lightgray;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 }
 
 .report-form {
@@ -131,5 +133,11 @@ input {
 }
 
 .report-input {
-  width: 48rem
+  min-width: 100%;
+  max-width: 100%;
+  margin-left: 0;
+}
+
+.report-button {
+  float: right;
 }
