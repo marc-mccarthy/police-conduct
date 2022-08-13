@@ -21,6 +21,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 
 import Start from '../AddReport/Start/Start';
+import OfficerDetails from '../AddReport/OfficerDetails/OfficerDetails';
 
 import './App.css';
 
@@ -76,6 +77,14 @@ function App() {
             path="/start"
           >
             <Start />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows Add Report (Officer Details) else shows LoginPage
+            exact
+            path="/officer-details"
+          >
+            <OfficerDetails />
           </ProtectedRoute>
 
           <Route

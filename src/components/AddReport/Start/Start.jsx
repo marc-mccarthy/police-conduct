@@ -1,24 +1,32 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 
-import { Button, Checkbox } from '@mui/material';
+import { Button, Checkbox, FormHelperText } from '@mui/material';
 import { useEffect } from 'react';
-
+import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 
 function Start() {
 
+  const dispatch = useDispatch();
+  const history = useHistory();
+
   const [anonymous, setAnonymous] = useState(false);
+  const [email, setEmail] = useState('');
   const [first, setFirst] = useState('');
   const [last, setLast] = useState('');
-  const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
+  const [publicReport, setPublicReport] = useState(false);
+  const [understand, setUnderstand] = useState(false);
+  const [verification, setVerification] = useState(false);
+
 
   useEffect(() => {
-    console.log(first, last, email, phone);
-  }, [first, last, email, phone]);
+    console.log(first, last, email, phone, publicReport, verification, understand);
+  }, [first, last, email, phone, publicReport, verification, understand]);
 
-  const handleAnonymous = (e) => {
+  const handleAnonymous = () => {
     setAnonymous(!anonymous);
     setFirst('');
     setLast('');
@@ -42,6 +50,40 @@ function Start() {
     setPhone(e.target.value);
   }
 
+  const handlePublicReport = () => {
+    setPublicReport(!publicReport);
+  }
+
+  const handleUnderstand = () => {
+    setUnderstand(!understand);
+  }
+
+  const handleVerification = () => {
+    setVerification(!verification);
+  }
+
+  const next = () => {
+    let newStart = {
+      anonymous: anonymous,
+      reporter_first: first,
+      reporter_last: last,
+      reporter_email: email,
+      reporter_phone: phone,
+      public: publicReport,
+      verification: verification,
+      handle_info: understand,
+    };
+    console.log(newStart);
+    if(understand === true && verification === true) {
+      dispatch({type: 'START_REPORT', payload: newStart});
+    } else {
+      alert('You must agree to the data handling and verification.');
+    }
+    
+    // TODO: history.push to next page
+    history.push('/officer-details');
+  }
+
   return (
     <div className='report'>
 
@@ -50,10 +92,10 @@ function Start() {
       <div className='report-content'>
 
         <h3>Accessibility</h3>
-        <p>If you need help completing this form, please email dale.lotts@gmail.com</p>
+        <p>If you need help completing this form, please email dale.lotts@gmail.com.</p>
 
         <h3>Anonymous</h3>
-        <p><Checkbox onChange={handleAnonymous} /> Check this box if you want your report to be filled anonymously</p>
+        <p><Checkbox onChange={handleAnonymous} /> Check this box if you want your report to be filed anonymously.</p>
 
         {
           anonymous ?
@@ -75,16 +117,16 @@ function Start() {
         }
 
         <h3>Public</h3>
-        <p><Checkbox /> Check this box if you want your report to be public</p>
+        <p><Checkbox onChange={handlePublicReport}/> Check this box if you want your report to be public. (Your personal details will not be shared, only your username.)</p>
 
         <h3>Verification</h3>
-        <p><Checkbox /> Check this box signifying you are NOT submitting this form on behalf of someone else</p>
+        <p><Checkbox onChange={handleVerification}/> *Check this box signifying you are NOT submitting this form on behalf of someone else. (*Required)</p>
 
         <h3>How we handle your information</h3>
         <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
-        <p><Checkbox /> I understand</p>
-
-        <Button className='report-button'>NEXT</Button>
+        <p><Checkbox onChange={handleUnderstand}/> *I understand how you handle my information. (*Required) </p>
+        
+        <Button className='report-button' onClick={next}>NEXT</Button>
 
       </div>
 
