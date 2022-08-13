@@ -15,7 +15,6 @@ function ReportInput({report, setReport}) {
   return (
     <div>
       <input onChange={handleReportChange} placeholder='something' type="text"/>
-      <button>NEXT</button>
     </div>
   );
 }
