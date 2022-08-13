@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import {useSelector} from 'react-redux';
+import {TextField} from '@mui/material';
 
 
 function ReportInput({report, setReport}) {
@@ -14,7 +15,8 @@ function ReportInput({report, setReport}) {
 
   return (
     <div>
-      <input onChange={handleReportChange} placeholder='something' type="text"/>
+      <TextField onChange={handleReportChange} placeholder='something' type="text"/>
+      {/* (TextField is MUI's input) */}
     </div>
   );
 }
