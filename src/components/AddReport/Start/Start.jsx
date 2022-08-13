@@ -2,15 +2,44 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import { Button, Checkbox } from '@mui/material';
+import { useEffect } from 'react';
 
 
 
 function Start() {
 
   const [anonymous, setAnonymous] = useState(false);
+  const [first, setFirst] = useState('');
+  const [last, setLast] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+
+  useEffect(() => {
+    console.log(first, last, email, phone);
+  }, [first, last, email, phone]);
 
   const handleAnonymous = (e) => {
     setAnonymous(!anonymous);
+    setFirst('');
+    setLast('');
+    setEmail('');
+    setPhone('');
+  }
+
+  const handleEmail = (e) => {
+    setEmail(e.target.value);
+  }
+
+  const handleFirst = (e) => {
+    setFirst(e.target.value);
+  }
+
+  const handleLast = (e) => {
+    setLast(e.target.value);
+  }
+
+  const handlePhone = (e) => {
+    setPhone(e.target.value);
   }
 
   return (
@@ -32,16 +61,16 @@ function Start() {
             :
             <span>
               <p>First name:</p>
-              <input className='report-input' />
+              <input className='report-input' onChange={handleFirst} />
 
               <p>Last name:</p>
-              <input className='report-input' />
+              <input className='report-input' onChange={handleLast} />
 
               <p>Email:</p>
-              <input className='report-input' />
+              <input className='report-input' onChange={handleEmail} />
 
               <p>Phone number:</p>
-              <input className='report-input' />
+              <input className='report-input' onChange={handlePhone} />
             </span>
         }
 
