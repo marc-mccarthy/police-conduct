@@ -26,6 +26,8 @@ import OfficerDetails from '../AddReport/OfficerDetails/OfficerDetails';
 import './App.css';
 import SideBar from '../SideBar/SideBar';
 import LogOutRoute from '../LogOutRoute/LogOutRoute';
+import Profile from '../Profile/Profile';
+import GuestProfile from '../GuestProfile/GuestProfile';
 
 
 function App() {
@@ -54,6 +56,30 @@ function App() {
             <AboutPage />
           </Route>
 
+          <Route
+            // shows guestProfile at all times (logged in or not)
+            exact
+            path="/guestProfile"
+          >
+            <GuestProfile />
+          </Route>
+
+          <Route
+            // shows guestProfile at all times (logged in or not)
+            exact
+            path="/start"
+          >
+            <Start />
+          </Route>
+
+          <Route
+            // shows guestProfile at all times (logged in or not)
+            exact
+            path="/officer-details"
+          >
+            <OfficerDetails />
+          </Route>
+
           {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/user will show the UserPage if the user is logged in.
             If the user is not logged in, the ProtectedRoute will show the LoginPage (component).
@@ -74,22 +100,22 @@ function App() {
             <InfoPage />
           </ProtectedRoute>
 
-          <ProtectedRoute
+          {/* <ProtectedRoute
 
             // logged in shows Add Report (Start) else shows LoginPage
             exact
             path="/start"
           >
             <Start />
-          </ProtectedRoute>
+          </ProtectedRoute> */}
 
-          <ProtectedRoute
+          {/* <ProtectedRoute
             // logged in shows Add Report (Officer Details) else shows LoginPage
             exact
             path="/officer-details"
           >
             <OfficerDetails />
-          </ProtectedRoute>
+          </ProtectedRoute> */}
 
           <ProtectedRoute
             exact
@@ -139,6 +165,20 @@ function App() {
               :
               // Otherwise, show the Landing page
               <LandingPage />
+            }
+          </Route>
+
+          <Route
+            exact
+            path="/profile"
+          >
+            {!user.id ?
+              // If the user is not logged in, 
+              // redirect them to the /guestUser page
+              <Redirect to="/guestProfile" />
+              :
+              // Otherwise, show the Profile page
+              <Profile />
             }
           </Route>
 
