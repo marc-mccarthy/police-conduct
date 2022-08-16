@@ -27,35 +27,69 @@ Container
 Button
 -------------------------------------------------------------------------------- */
 
-.btn {
+.guestbtn {
   display: inline-block;
   padding: 10px 20px;
   border-color: #014041;
   border-width: 1px 1px 3px;
   border-radius: 4px;
-  background-color: #00acb0;
+  background-color: green;
   color: #f8f8f8;
   font-size: 1.1rem;
   outline: 0;
   cursor: pointer;
 }
 
-.btn_sizeMin {
+.guestbtn_sizeMin {
   min-height: 50px;
   min-width: 100px;
 }
 
-.btn_sizeSm {
+.guestbtn_sizeSm {
   padding: 10px 15px;
   font-size: 0.8rem;
 }
 
-.btn_sizeFull {
+.guestbtn_sizeFull {
   display: block;
   width: 100%;
 }
 
-.btn:hover {
+.guestbtn:hover {
+  background-color: #008183;
+  text-decoration: none;
+}
+
+.userbtn {
+  display: inline-block;
+  padding: 10px 20px;
+  border-color: #014041;
+  border-width: 1px 1px 3px;
+  border-radius: 4px;
+  background-color: blue;
+  color: #f8f8f8;
+  font-size: 1.1rem;
+  outline: 0;
+  cursor: pointer;
+}
+
+
+.userbtn_sizeMin {
+  min-height: 50px;
+  min-width: 100px;
+}
+
+.userbtn_sizeSm {
+  padding: 10px 15px;
+  font-size: 0.8rem;
+}
+
+.userbtn_sizeFull {
+  display: block;
+  width: 100%;
+}
+
+.userbtn:hover {
   background-color: #008183;
   text-decoration: none;
 }
@@ -102,9 +136,9 @@ Form Treatment
   max-width: 100%;
   padding: 25px;
   margin: 0 auto 20px;
-  background-color: #efefef;
+  background-color: white;
   border-radius: 3px;
-  box-shadow: 0 1px 2px rgb(0, 0, 0, 0.4);
+  box-shadow: 0 5px 10px rgb(0, 0, 0, 0.4);
 }
 
 input {

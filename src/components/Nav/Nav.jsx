@@ -19,7 +19,14 @@ function Nav() {
         {!user.id && (
           // If there's no user, show login/registration links
           <Link className="navLink" to="/login">
-            Login / Register
+            Login
+          </Link>
+        )}
+
+        {!user.id && (
+          // If there's no user, show login/registration links
+          <Link className="navLink" to="/registration">
+          Register
           </Link>
         )}
 
@@ -37,10 +44,6 @@ function Nav() {
             <LogOutButton className="navLink" />
           </>
         )}
-
-        <Link className="navLink" to="/about">
-          About
-        </Link>
       </div>
     </div>
   );

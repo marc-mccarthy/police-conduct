@@ -57,7 +57,7 @@ function LoginForm() {
         </label>
       </div>
       <div>
-        <input className="btn" type="submit" name="submit" value="Log In" />
+        <input className="userbtn" type="submit" name="submit" value="Log In" />        <input className="guestbtn" type="submit" name="submit" value="Continue as a Guest" />
       </div>
     </form>
   );
