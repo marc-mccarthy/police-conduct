@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import {useSelector} from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 function LoginForm() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const history = useHistory();
   const errors = useSelector(store => store.errors);
   const dispatch = useDispatch();
 
@@ -23,6 +25,10 @@ function LoginForm() {
       dispatch({ type: 'LOGIN_INPUT_ERROR' });
     }
   }; // end login
+
+  const goToLanding=()=>{
+    history.push('/home');
+  }
 
   return (
     <form className="formPanel" onSubmit={login}>
@@ -57,7 +63,7 @@ function LoginForm() {
         </label>
       </div>
       <div>
-        <input className="userbtn" type="submit" name="submit" value="Log In" />        <input className="guestbtn" type="submit" name="submit" value="Continue as a Guest" />
+        <input className="userbtn" type="submit" name="submit" value="Log In"/> <button className='guestbtn' type='button' onClick={goToLanding}>Continue as Guest</button>
       </div>
     </form>
   );

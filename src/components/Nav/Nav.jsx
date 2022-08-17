@@ -16,21 +16,21 @@ function Nav() {
       </Link>
       <div>
         {/* If no user is logged in, show these links */}
-        {!user.id && (
+        {/* {!user.id && (
           // If there's no user, show login/registration links
           <Link className="navLink" to="/login">
             Login
           </Link>
-        )}
+        )} */}
 
-        {!user.id && (
+        {/* {!user.id && (
           // If there's no user, show login/registration links
           <Link className="navLink" to="/registration">
           Register
           </Link>
-        )}
+        )} */}
 
-        {/* If a user is logged in, show these links */}
+        {/* If a user is logged in, show these links
         {user.id && (
           <>
             <Link className="navLink" to="/user">
@@ -43,7 +43,7 @@ function Nav() {
 
             <LogOutButton className="navLink" />
           </>
-        )}
+        )} */}
       </div>
     </div>
   );

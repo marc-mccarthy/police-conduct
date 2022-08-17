@@ -10,7 +10,7 @@ function LandingPage() {
   const history = useHistory();
 
   const toViewReports = () => {
-    history.push('/allreports');
+    history.push('/viewReport');
   };
 
   const addUserReport = () => {
