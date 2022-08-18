@@ -4,6 +4,7 @@ import LogOutButton from '../LogOutButton/LogOutButton';
 import './Nav.css';
 import { useSelector } from 'react-redux';
 import SideBar from '../SideBar/SideBar';
+import ProgressBar from '../ProgressBar/ProgressBar';
 
 function Nav() {
   const user = useSelector((store) => store.user);
@@ -12,18 +13,25 @@ function Nav() {
     <div className="nav">
         <SideBar className='SidebarNav' />
       <Link to="/home">
-        <h2 className="nav-title"></h2>
+        <h2 className="nav-title"><ProgressBar /></h2>
       </Link>
       <div>
         {/* If no user is logged in, show these links */}
-        {!user.id && (
+        {/* {!user.id && (
           // If there's no user, show login/registration links
           <Link className="navLink" to="/login">
-            Login / Register
+            Login
           </Link>
-        )}
+        )} */}
 
-        {/* If a user is logged in, show these links */}
+        {/* {!user.id && (
+          // If there's no user, show login/registration links
+          <Link className="navLink" to="/registration">
+          Register
+          </Link>
+        )} */}
+
+        {/* If a user is logged in, show these links
         {user.id && (
           <>
             <Link className="navLink" to="/user">
@@ -36,11 +44,7 @@ function Nav() {
 
             <LogOutButton className="navLink" />
           </>
-        )}
-
-        <Link className="navLink" to="/about">
-          About
-        </Link>
+        )} */}
       </div>
     </div>
   );
