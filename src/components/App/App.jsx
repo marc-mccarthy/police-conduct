@@ -142,9 +142,15 @@ function App() {
             path="/login"
           >
             {user.id ?
+
+
+
+
+
               // If the user is already logged in, 
               // redirect to the /home page
               <Redirect to="/home" />
+
               :
               // Otherwise, show the login page
               <LoginPage />
@@ -156,7 +162,7 @@ function App() {
             path="/registration"
           >
             {user.id ?
-              // If the user is already logged in, 
+              // If the user is already logged in,
               // redirect them to the /user page
               <Redirect to="/home" />
               :
@@ -170,7 +176,7 @@ function App() {
             path="/home"
           >
             {user.id ?
-              // If the user is already logged in, 
+              // If the user is already logged in,
               // redirect them to the /user page
               <Redirect to="/home" />
               :
@@ -184,7 +190,7 @@ function App() {
             path="/profile"
           >
             {!user.id ?
-              // If the user is not logged in, 
+              // If the user is not logged in,
               // redirect them to the /guestUser page
               <Redirect to="/guestProfile" />
               :
