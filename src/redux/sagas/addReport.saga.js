@@ -12,6 +12,8 @@ function* addReport(action) {
     console.log(action.payload);
     // send new report data to server
     yield axios.post('/api/reports/addReport', action.payload);
+    // get all updated public reports from server
+    yield ({ type: 'FETCH_ALL_REPORTS' });
   } catch (error) {
     console.log('Error with startReportSaga:', error);
   }
