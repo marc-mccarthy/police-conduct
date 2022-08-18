@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 function RegisterForm() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const history = useHistory();
   const errors = useSelector((store) => store.errors);
   const dispatch = useDispatch();
 
@@ -19,9 +21,13 @@ function RegisterForm() {
     });
   }; // end registerUser
 
+  const goToLanding=()=>{
+    history.push('/home');
+  }
+
   return (
     <form className="formPanel" onSubmit={registerUser}>
-      <h2>Register User</h2>
+      <h2>Register</h2>
       {errors.registrationMessage && (
         <h3 className="alert" role="alert">
           {errors.registrationMessage}
@@ -52,7 +58,7 @@ function RegisterForm() {
         </label>
       </div>
       <div>
-        <input className="btn" type="submit" name="submit" value="Register" />
+        <input className="userbtn" type="submit" name="submit" value="Register" /> <button className='guestbtn' type='button' onClick={goToLanding}>Continue as Guest</button>
       </div>
     </form>
   );
