@@ -1,4 +1,4 @@
-const reportsReducer = (state = {}, action) => {
+const reportsReducer = (state = [], action) => {
   switch (action.type) {
     case 'SET_REPORTS':
       return action.payload;
