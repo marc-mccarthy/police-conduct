@@ -29,6 +29,7 @@ import LogOutRoute from '../LogOutRoute/LogOutRoute';
 import Profile from '../Profile/Profile';
 import GuestProfile from '../GuestProfile/GuestProfile';
 import ViewReports from '../ViewReports/ViewReports';
+import Page404 from '../Page404/Page404';
 
 
 
@@ -147,7 +148,7 @@ function App() {
 
 
 
-              // If the user is already logged in, 
+              // If the user is already logged in,
               // redirect to the /home page
               <Redirect to="/home" />
 
@@ -201,7 +202,7 @@ function App() {
 
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>
-            <h1>404</h1>
+            <Page404 />
           </Route>
         </Switch>
         {/* <Footer /> */}
