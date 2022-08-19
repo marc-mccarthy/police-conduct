@@ -2,6 +2,8 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
+import { Box } from '@mui/material';
+import LoadingBar from "../LoadingBar/LoadingBar";
 
 function ViewReports() {
   const reports = useSelector((store) => store.reports);
@@ -19,7 +21,9 @@ function ViewReports() {
   return (
     <div className="container">
       {reports.length == 0 ? (
-        <h3>Heaviy Loading...</h3>
+        <Box mt={25} display='flex' justifyContent='center' alignItems='center'>
+          <LoadingBar />
+        </Box>
       ) : (
       <div>
         <h3>All Reports :</h3>
