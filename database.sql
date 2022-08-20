@@ -24,11 +24,11 @@ CREATE TABLE "report" (
     "interaction_time" TIME  ,
     "interaction_location" VARCHAR (255)  ,
     "reference_number" VARCHAR (255)  ,
-    "interaction_summary" VARCHAR (10000)  ,
+    "interaction_summary" VARCHAR (10000) NOT NULL  ,
     "report_outcomes" VARCHAR (10000)  ,
-    "reporter_first" VARCHAR (255)  ,
-    "reporter_last" VARCHAR (255)  ,
-    "reporter_email" VARCHAR (255)  ,
-    "reporter_phone" VARCHAR (255)  ,
+    "reporter_first" VARCHAR (255) DEFAULT NULL ,
+    "reporter_last" VARCHAR (255)  DEFAULT NULL ,
+    "reporter_email" VARCHAR (255) DEFAULT NULL ,
+    "reporter_phone" VARCHAR (255)  DEFAULT NULL ,
     "userID" INTEGER REFERENCES "user" (id)
 );
