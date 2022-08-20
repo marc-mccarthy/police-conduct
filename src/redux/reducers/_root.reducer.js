@@ -3,6 +3,7 @@ import errors from './errors.reducer';
 import user from './user.reducer';
 import start from './start.reducer';
 import reports from './reports.reducer';
+import eachReport from './eachReport.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -16,6 +17,7 @@ const rootReducer = combineReducers({
 
   start, // TYPE: START_REPORT
   reports, // TYPE: SET_REPORTS
+  eachReport, // TYPE: EACH_REPORT
 });
 
 export default rootReducer;

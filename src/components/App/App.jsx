@@ -30,7 +30,7 @@ import Profile from '../Profile/Profile';
 import GuestProfile from '../GuestProfile/GuestProfile';
 import ViewReports from '../ViewReports/ViewReports';
 import Page404 from '../Page404/Page404';
-
+import ReportDetails from '../ReportDetails/ReportDetails';
 
 
 function App() {
@@ -66,6 +66,15 @@ function App() {
           >
             <GuestProfile />
           </Route>
+
+          <Route
+            // shows guestProfile at all times (logged in or not)
+            exact
+            path="/reports/:id"
+          >
+            <ReportDetails />
+          </Route>
+
 
           <Route
             // shows guestProfile at all times (logged in or not)
