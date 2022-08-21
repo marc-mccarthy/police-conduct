@@ -29,9 +29,9 @@ function OfficerDetails() {
   return (
     <div className='report'>
 
-      <h2 className='report-form'>Officer Details</h2>
-
       <div className='report-content'>
+
+        <h2>Officer Details</h2>
 
         <p>First name:</p>
 
