@@ -4,26 +4,68 @@ import { useSelector } from 'react-redux';
 import { Button } from '@mui/material';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 
 function OfficerDetails() {
 
   const dispatch = useDispatch();
+  const history = useHistory();
 
+  const [officerFirst, setOfficerFirst] = useState('');
+  const [officerLast, setOfficerLast] = useState('');
+  const [officerRank, setOfficerRank] = useState('');
+  const [officerBadge, setOfficerBadge] = useState('');
+  const [officerDept, setOfficerDept] = useState('');
+  const [officerAnything, setOfficerAnything] = useState('');
 
   useEffect(() => {
-    console.log();
-  }, []);
+    console.log(officerFirst, officerLast, officerRank, officerBadge, officerDept, officerAnything);
+  }, [officerFirst, officerLast, officerRank, officerBadge, officerDept, officerAnything]);
 
+  const back = () => {
+    history.push('/start');
+  };
+
+  const handleOfficerAnything = (e) => {
+    setOfficerAnything(e.target.value);
+  };
+
+  const handleOfficerBadge = (e) => {
+    setOfficerBadge(e.target.value);
+  };
+
+  const handleOfficerDept = (e) => {
+    setOfficerDept(e.target.value);
+  };
+
+  const handleOfficerFirst = (e) => {
+    setOfficerFirst(e.target.value);
+  };
+
+  const handleOfficerLast = (e) => {
+    setOfficerLast(e.target.value);
+  };
+
+  const handleOfficerRank = (e) => {
+    setOfficerRank(e.target.value);
+  };
 
   const next = () => {
     // create new object
-
+    let newOfficerDetails = {
+      officer_first: officerFirst,
+      officer_last: officerLast,
+      officer_rank: officerRank,
+      officer_badge: officerBadge,
+      officer_department: officerDept,
+      officer_anythingelse: officerAnything,
+    };
+    console.log(newOfficerDetails);
     // send dispatch
-    // dispatch({ type: 'OFFICER_DETAILS', payload: newOfficerDetails });
-
-
-    // TODO: history.push to next page
+    dispatch({type: 'OFFICER_DETAILS', payload: newOfficerDetails});
+    // history.push to next page
+    history.push('/interaction-details');
   }
 
   return (
@@ -34,8 +76,24 @@ function OfficerDetails() {
         <h2>Officer Details</h2>
 
         <p>First name:</p>
+        <input className='report-input' onChange={handleOfficerFirst}></input>
 
-        <Button>BACK</Button>
+        <p>Last name:</p>
+        <input className='report-input' onChange={handleOfficerLast}></input>
+
+        <p>Rank:</p>
+        <input className='report-input' onChange={handleOfficerRank}></input>
+
+        <p>Badge Number:</p>
+        <input className='report-input' onChange={handleOfficerBadge}></input>
+
+        <p>Department:</p>
+        <input className='report-input' onChange={handleOfficerDept}></input>
+
+        <p>Is there anything else you can tell us to help identify this officer</p>
+        <input className='report-input' onChange={handleOfficerAnything}></input>
+
+        <Button onClick={back}>BACK</Button>
         <Button className='report-button' onClick={next}>NEXT</Button>
 
       </div>
