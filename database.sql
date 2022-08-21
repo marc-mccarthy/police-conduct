@@ -20,6 +20,7 @@ CREATE TABLE "report" (
     "officer_rank" VARCHAR (255)  ,
     "officer_badge" VARCHAR (255)  ,
     "officer_department" VARCHAR (255)  ,
+    "officer_anythingelse" VARCHAR (1000) ,
     "interaction_date" DATE  ,
     "interaction_time" TIME  ,
     "interaction_location" VARCHAR (255)  ,

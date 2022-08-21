@@ -51,16 +51,21 @@ function OfficerDetails() {
     setOfficerRank(e.target.value);
   };
 
-
-
   const next = () => {
     // create new object
-
+    let newOfficerDetails = {
+      officer_first: officerFirst,
+      officer_last: officerLast,
+      officer_rank: officerRank,
+      officer_badge: officerBadge,
+      officer_department: officerDept,
+      officer_anythingelse: officerAnything,
+    };
+    console.log(newOfficerDetails);
     // send dispatch
-    // dispatch({ type: 'OFFICER_DETAILS', payload: newOfficerDetails });
-
-
-    // TODO: history.push to next page
+    dispatch({type: 'OFFICER_DETAILS', payload: newOfficerDetails});
+    // history.push to next page
+    history.push('/interaction-details');
   }
 
   return (
