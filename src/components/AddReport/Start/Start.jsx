@@ -85,12 +85,14 @@ function Start() {
   return (
     <div className='report'>
 
-      <h2 className='report-form'>Report Form</h2>
+      {/* <h2 className='report-form'>Report Form</h2> */}
 
       <div className='report-content'>
 
+        <h2>Report Form</h2>
+
         <h3>Accessibility</h3>
-        <p>If you need help completing this form, please email dale.lotts@gmail.com.</p>
+        <p>If you need help completing this form, please email help@policeconduct.org</p>
 
         <h3>Anonymous</h3>
         <p><Checkbox onChange={handleAnonymous} /> Check this box if you want your report to be filed anonymously.</p>

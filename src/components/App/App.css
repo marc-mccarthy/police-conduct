@@ -146,24 +146,26 @@ input {
   margin-bottom: 10px;
 }
 
-/* Report */
+/* --------- Report --------- */
 
 .report {
   margin: auto;
   width: 70%;
   background-color: #DEDEDE;
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  font-size: 1rem;
+  padding-top: 1em;
+  padding-bottom: 3em;
 }
 
 .report-form {
   margin-top: 0;
-  margin-left: 7rem;
+  margin-left: 1em;
 }
 
 .report-content {
-  margin-left: 7rem;
-  margin-right: 7rem;
+  font-size: 1rem;
+  margin-left: 2em;
+  margin-right: 2em;
 }
 
 .report-input {
