@@ -22,6 +22,11 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import Start from '../AddReport/Start/Start';
 import OfficerDetails from '../AddReport/OfficerDetails/OfficerDetails';
+import InteractionDetails from '../AddReport/InteractionDetails/InteractionDetails';
+import Description from '../AddReport/Description/Description';;
+import Outcomes from '../AddReport/Outcomes/Outcomes';
+import Review from '../AddReport/Review/Review';
+import Submitted from '../AddReport/Submitted/Submitted';
 
 import './App.css';
 import SideBar from '../SideBar/SideBar';
@@ -90,6 +95,46 @@ function App() {
             path="/officer-details"
           >
             <OfficerDetails />
+          </Route>
+
+          <Route
+            // shows guestProfile at all times (logged in or not)
+            exact
+            path="/interaction-details"
+          >
+            <InteractionDetails />
+          </Route>
+
+          <Route
+            // shows guestProfile at all times (logged in or not)
+            exact
+            path="/description"
+          >
+            <Description />
+          </Route>
+
+          <Route
+            // shows guestProfile at all times (logged in or not)
+            exact
+            path="/outcomes"
+          >
+            <Outcomes />
+          </Route>
+
+          <Route
+            // shows guestProfile at all times (logged in or not)
+            exact
+            path="/review"
+          >
+            <Review />
+          </Route>
+
+          <Route
+            // shows guestProfile at all times (logged in or not)
+            exact
+            path="/submitted"
+          >
+            <Submitted />
           </Route>
 
           <Route
