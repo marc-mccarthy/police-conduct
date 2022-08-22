@@ -11,6 +11,7 @@ const passport = require('./strategies/user.strategy');
 const userRouter = require('./routes/user.router');
 const reportsRouter = require('./routes/reports.router');
 const eachReportRouter = require('./routes/eachReport.router.js');
+const deleteReportRouter = require('./routes/deleteReport.router.js');
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -27,6 +28,8 @@ app.use(passport.session());
 app.use('/api/user', userRouter);
 app.use('/api/reports', reportsRouter);
 app.use('/api/each', eachReportRouter);
+app.use('/api/delete', deleteReportRouter);
+
 
 
 // Serve static files

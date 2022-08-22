@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { Box, Button } from '@mui/material';
 import LoadingBar from '../LoadingBar/LoadingBar';
+import './ReportDetails.css';
 
 
 function ReportDetails() {
@@ -17,12 +18,25 @@ function ReportDetails() {
     dispatch({ type: 'EACH_USER_REPORT', payload: id });
   }, []);
 
+  const delete_Report = async () => {
+    if (window.confirm("Are you sure you want to delete this report? This action cannot be undone!")) {
+      dispatch({ type: "DELETE_REPORT", payload: id });
+      setTimeout(function () {
+        history.push("/profile");
+      }, 1);
+    }
+  };
+
+
+
+
+
   const editDelete = () => {
     console.log("upDel");
     if (user.id === reports[0].userID) {
       return (
         <div>
-          <Button variant="contained" color="primary" onClick={console.log('hello')}>
+          <Button variant="contained" color="primary" onClick={delete_Report}>
             Delete
           </Button>
           <Button variant="contained" color="primary" onClick={console.log('hello')}>
@@ -34,7 +48,7 @@ function ReportDetails() {
   };
 // end of editDelete
   return (
-    <div className="gear_page">
+    <div className="details_page">
       {reports.length === 0 ? (
         <div>
           <h1 className="spinner"></h1>
