@@ -15,15 +15,14 @@ function InteractionSummary() {
   const [interactionSummary, setInteractionSummary] = useState('');
 
   useEffect(() => {
-    console.log();
-  }, []);
+    console.log(interactionSummary);
+  }, [interactionSummary]);
 
   const handleSummary = (e) => {
     setInteractionSummary(e.target.value);
   }
 
-
-  const next=() => {
+  const next = () => {
     // create new object
     let newInteractionSummary={
       interaction_summary: interactionSummary
