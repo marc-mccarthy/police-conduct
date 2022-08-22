@@ -16,12 +16,16 @@ function Outcomes() {
   }, []);
 
 
-  const next = () => {
+  const next=() => {
     // create new object
-
+    let newOutcomes={
+      report_outcomes: reportOutcomes,
+    };
+    console.log(newOutcomes);
     // send dispatch
-
-    // TODO: history.push to next page
+    dispatch({type: 'OUTCOMES_SAGA', payload: newOutcomes});
+    // history.push to next page
+    history.push('/review');
   }
 
   return (

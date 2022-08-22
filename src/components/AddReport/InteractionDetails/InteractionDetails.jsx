@@ -43,15 +43,15 @@ function InteractionDetails() {
 
   const next = () => {
     // create new object
-    let newDetails = {
+    let newInteractionDetails = {
       interaction_date: interactionDate,
       interaction_time: interactionTime,
       interaction_location: interactionLocation,
       reference_number: referenceNumber
     };
-    console.log(newDetails);
+    console.log(newInteractionDetails);
     // send dispatch
-    dispatch({type: 'INTERACTION_DETAILS', payload: newDetails});
+    dispatch({type: 'INTERACTION_DETAILS_SAGA', payload: newInteractionDetails});
     // history.push to next page
     history.push('/description')
   }

@@ -63,7 +63,7 @@ function OfficerDetails() {
     };
     console.log(newOfficerDetails);
     // send dispatch
-    dispatch({type: 'OFFICER_DETAILS', payload: newOfficerDetails});
+    dispatch({type: 'OFFICER_DETAILS_SAGA', payload: newOfficerDetails});
     // history.push to next page
     history.push('/interaction-details');
   }
