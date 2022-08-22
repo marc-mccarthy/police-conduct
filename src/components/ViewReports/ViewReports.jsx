@@ -26,7 +26,7 @@ function ViewReports() {
         </Box>
       ) : (
         <div>
-          <h3>All Reports :</h3>
+          <h2>All Reports :</h2>
 
           <div className="ReportList">
             {reports.map((eachReport) => {

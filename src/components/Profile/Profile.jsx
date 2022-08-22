@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Box } from '@mui/material';
 import LoadingBar from '../LoadingBar/LoadingBar';
+import './Profile.css'
 
 
 
@@ -31,7 +32,7 @@ function Profile() {
           ) : (
             <div>
               <h2>{user.username}'s Reports :</h2>
-              <div className="ReportList">
+              <div className="ProfileReportList">
                 {reports.map((eachReport) => {
                   return (
                     eachReport.userID == user.id && (
