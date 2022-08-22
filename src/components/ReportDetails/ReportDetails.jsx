@@ -2,8 +2,9 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
-import { Box } from '@mui/material';
+import { Box, Button } from '@mui/material';
 import LoadingBar from '../LoadingBar/LoadingBar';
+
 
 function ReportDetails() {
   const user = useSelector((store) => store.user);
@@ -16,6 +17,22 @@ function ReportDetails() {
     dispatch({ type: 'EACH_USER_REPORT', payload: id });
   }, []);
 
+  const editDelete = () => {
+    console.log("upDel");
+    if (user.id === reports[0].userID) {
+      return (
+        <div>
+          <Button variant="contained" color="primary" onClick={console.log('hello')}>
+            Delete
+          </Button>
+          <Button variant="contained" color="primary" onClick={console.log('hello')}>
+            Edit
+          </Button>
+        </div>
+      );
+    }
+  };
+// end of upDel
   return (
     <div className="gear_page">
       {reports.length === 0 ? (
@@ -37,6 +54,8 @@ function ReportDetails() {
           <p>Ref # : {reports[0].reference_number}</p>
           <p>Report Summary: {reports[0].interaction_summary}</p>
           <p>Desired Outcomes: {reports[0].report_outcomes}</p>
+          <div>{editDelete()}</div>
+
         </div>
       )}
     </div>

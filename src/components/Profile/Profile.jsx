@@ -16,7 +16,7 @@ function Profile() {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch({ type: 'FETCH_REPORTS' });
+        dispatch({ type: 'FETCH_ALL_REPORTS' });
     }, []);
     const details = (id) => {
         history.push(`/reports/${id}`)
