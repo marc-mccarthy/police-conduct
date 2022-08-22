@@ -32,7 +32,7 @@ function ReportDetails() {
       );
     }
   };
-// end of upDel
+// end of editDelete
   return (
     <div className="gear_page">
       {reports.length === 0 ? (
