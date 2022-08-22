@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
 
-function Description() {
+function InteractionSummary() {
 
   const dispatch = useDispatch();
 
@@ -46,4 +46,4 @@ function Description() {
   );
 }
 
-export default Description;
+export default InteractionSummary;

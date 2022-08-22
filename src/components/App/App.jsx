@@ -23,7 +23,7 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 import Start from '../AddReport/Start/Start';
 import OfficerDetails from '../AddReport/OfficerDetails/OfficerDetails';
 import InteractionDetails from '../AddReport/InteractionDetails/InteractionDetails';
-import Description from '../AddReport/Description/Description';;
+import InteractionSummary from '../AddReport/InteractionSummary/InteractionSummary';
 import Outcomes from '../AddReport/Outcomes/Outcomes';
 import Review from '../AddReport/Review/Review';
 import Submitted from '../AddReport/Submitted/Submitted';
@@ -108,9 +108,9 @@ function App() {
           <Route
             // shows guestProfile at all times (logged in or not)
             exact
-            path="/description"
+            path="/interaction-summary"
           >
-            <Description />
+            <InteractionSummary />
           </Route>
 
           <Route

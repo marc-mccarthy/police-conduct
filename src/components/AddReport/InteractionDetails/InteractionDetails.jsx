@@ -53,7 +53,7 @@ function InteractionDetails() {
     // send dispatch
     dispatch({type: 'INTERACTION_DETAILS_SAGA', payload: newInteractionDetails});
     // history.push to next page
-    history.push('/description')
+    history.push('/interaction-summary')
   }
 
   return (

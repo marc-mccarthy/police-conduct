@@ -65,13 +65,13 @@ function Start() {
   const next = () => {
     let newStart = {
       anonymous: anonymous,
+      public: publicReport,
+      verification: verification,
+      handle_info: understand,
       reporter_first: first,
       reporter_last: last,
       reporter_email: email,
       reporter_phone: phone,
-      public: publicReport,
-      verification: verification,
-      handle_info: understand,
     };
     console.log(newStart);
     if(understand === true && verification === true) {
