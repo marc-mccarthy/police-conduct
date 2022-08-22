@@ -10,6 +10,12 @@ function Review() {
 
   const dispatch = useDispatch();
 
+  // form reducer values from the store to be used for review
+  const start = useSelector(store => store.startReducer);
+  const officerDetails = useSelector(store => store.officerDetailsReducer);
+  const interactionDetails = useSelector(store => store.interactionDetailsReducer);
+  const interactionSummary = useSelector(store => store.interactionSummaryReducer);
+  const outcomes = useSelector(store => store.outcomesReducer);
 
   useEffect(() => {
     console.log();

@@ -75,7 +75,7 @@ function Start() {
     };
     console.log(newStart);
     if(understand === true && verification === true) {
-      dispatch({type: 'START_REPORT', payload: newStart});
+      dispatch({type: 'START_SAGA', payload: newStart});
       history.push('/officer-details');
     } else {
       alert('You must agree to the data handling and verification.');

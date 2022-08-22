@@ -1,6 +1,6 @@
-const startReducer = (state = {}, action) => {
+const officerDetailsReducer = (state = {}, action) => {
   switch (action.type) {
-    case 'START_REDUCER':
+    case 'OFFICER_DETAILS_REDUCER':
       console.log(action.payload);
       return action.payload;
     default:
@@ -8,4 +8,4 @@ const startReducer = (state = {}, action) => {
   }
 };
 
-export default startReducer;
+export default officerDetailsReducer;

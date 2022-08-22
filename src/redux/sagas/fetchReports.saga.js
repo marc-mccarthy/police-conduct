@@ -5,7 +5,7 @@ function* fetchReportsSaga() {
 	yield takeLatest('FETCH_ALL_REPORTS', fetchReports);
 }
 
-// worker Saga: will be fired on "START_REPORT" actions
+// worker Saga: will be fired on "FETCH_ALL_REPORTS" actions
 function* fetchReports(action) {
   try {
     // get all public reports from server

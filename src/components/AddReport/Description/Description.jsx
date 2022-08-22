@@ -16,12 +16,16 @@ function Description() {
   }, []);
 
 
-  const next = () => {
+  const next=() => {
     // create new object
-
+    let newInteractionSummary={
+      interaction_summary: interactionSummary
+    };
+    console.log(newInteractionSummary);
     // send dispatch
-
-    // TODO: history.push to next page
+    dispatch({type: 'INTERACTION_SUMMARY_SAGA', payload: newInteractionSummary});
+    // history.push to next page
+    history.push('/outcomes')
   }
 
   return (
