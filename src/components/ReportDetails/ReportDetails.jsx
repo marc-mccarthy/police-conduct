@@ -32,7 +32,6 @@ function ReportDetails() {
 
 
   const editDelete = () => {
-    console.log("upDel");
     if (user.id === reports[0].userID) {
       return (
         <div>
