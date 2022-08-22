@@ -64,16 +64,16 @@ function InteractionDetails() {
         <h2>Interaction Details</h2>
 
         <p>Date of interaction:</p>
-        <input className='report-input' type="date" onChange={handleDate}></input>
+        <input className='report-input' type="date" onChange={handleDate} />
 
         <p>Time of interaction:</p>
-        <input className='report-input' onChange={handleLocation}></input>
+        <input type='text' className='report-input' onChange={handleLocation} />
 
         <p>Location of interaction:</p>
-        <input className='report-input' onChange={handleTime}></input>
+        <input type='text' className='report-input' onChange={handleTime} />
 
         <p>Incident reference number (if you have one):</p>
-        <input className='report-input' onChange={handleReferenceNumber}></input>
+        <input type='text' className='report-input' onChange={handleReferenceNumber} />
 
         <Button onClick={back}>BACK</Button>
         <Button className='report-button' onClick={next}>NEXT</Button>
