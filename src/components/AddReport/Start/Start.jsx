@@ -101,16 +101,16 @@ function Start() {
             :
             <span>
               <p>First name:</p>
-              <input className='report-input' onChange={handleFirst} />
+              <input type='text' className='report-input' onChange={handleFirst} />
 
               <p>Last name:</p>
-              <input className='report-input' onChange={handleLast} />
+              <input type='text' className='report-input' onChange={handleLast} />
 
               <p>Email:</p>
-              <input className='report-input' onChange={handleEmail} />
+              <input type='text' className='report-input' onChange={handleEmail} />
 
               <p>Phone number:</p>
-              <input className='report-input' onChange={handlePhone} />
+              <input type='text' className='report-input' onChange={handlePhone} />
             </span>
         }
 
