@@ -1,4 +1,3 @@
-
 -- USER is a reserved keyword with Postgres
 -- You must use double quotes in every query that user is in:
 -- ex. SELECT * FROM "user";
@@ -33,3 +32,20 @@ CREATE TABLE "report" (
     "reporter_phone" VARCHAR (255)  DEFAULT NULL ,
     "userID" INTEGER REFERENCES "user" (id)
 );
+
+SELECT * FROM "report" WHERE public = true;
+
+INSERT INTO "report" ("anonymous","public","verification","handle_info","officer_first","officer_last","officer_rank","officer_badge","officer_department","officer_anythingelse","interaction_date","interaction_time","interaction_location","reference_number","interaction_summary","report_outcomes","reporter_first","reporter_last","reporter_email","reporter_phone","userID")
+VALUES
+('false', 'true', 'true', 'true', 'Ted', 'Bundy', 'Seargeant', 4359, 'China Town District', 'Kind Eyes', '2022-08-10', '23:00:00', 'Los Angeles, CA', 342, 'He hit my leg and I lost my glasses', 'Should lose his license', 'Barnie', 'Rubble', 'yubbadubbado@gmail.com', '435-747-1943', 1),
+('false', 'true', 'true', 'true', 'Johnny', 'Cash', 'Seargeant', 4359, 'China Town District', 'Kind Eyes', '2022-08-10', '23:00:00', 'Los Angeles, CA', 342, 'He hit my leg and I lost my glasses', 'Should lose his license', 'Great', 'Bambino', 'yubbadubbado@gmail.com', '435-747-1943', 1),
+('false', 'true', 'true', 'true', 'Baker', 'Square', 'Seargeant', 4359, 'China Town District', 'Kind Eyes', '2022-08-10', '23:00:00', 'Los Angeles, CA', 342, 'He hit my leg and I lost my glasses', 'Should lose his license', 'Bob', 'Ross', 'yubbadubbado@gmail.com', '435-747-1943', 1),
+('false', 'true', 'true', 'true', 'Stone Cold', 'Steve Austin', 'Seargeant', 4359, 'China Town District', 'Kind Eyes', '2022-08-10', '23:00:00', 'Los Angeles, CA', 342, 'He hit my leg and I lost my glasses', 'Should lose his license', 'Marshall', 'Mathers', 'yubbadubbado@gmail.com', '435-747-1943', 1),
+('false', 'true', 'true', 'true', 'Mary', 'Poppins', 'Seargeant', 4359, 'China Town District', 'Kind Eyes', '2022-08-10', '23:00:00', 'Los Angeles, CA', 342, 'He hit my leg and I lost my glasses', 'Should lose his license', 'Rick', 'and Morty', 'yubbadubbado@gmail.com', '435-747-1943', 1),
+('false', 'true', 'true', 'true', 'Ted', 'Bundy', 'Seargeant', 4359, 'China Town District', 'Kind Eyes', '2022-08-10', '23:00:00', 'Los Angeles, CA', 342, 'He hit my leg and I lost my glasses', 'Should lose his license', 'Barnie', 'Rubble', 'yubbadubbado@gmail.com', '435-747-1943', 1),
+('false', 'true', 'true', 'true', 'Johnny', 'Cash', 'Seargeant', 4359, 'China Town District', 'Kind Eyes', '2022-08-10', '23:00:00', 'Los Angeles, CA', 342, 'He hit my leg and I lost my glasses', 'Should lose his license', 'Great', 'Bambino', 'yubbadubbado@gmail.com', '435-747-1943', 1),
+('false', 'true', 'true', 'true', 'Baker', 'Square', 'Seargeant', 4359, 'China Town District', 'Kind Eyes', '2022-08-10', '23:00:00', 'Los Angeles, CA', 342, 'He hit my leg and I lost my glasses', 'Should lose his license', 'Bob', 'Ross', 'yubbadubbado@gmail.com', '435-747-1943', 1),
+('false', 'true', 'true', 'true', 'Stone Cold', 'Steve Austin', 'Seargeant', 4359, 'China Town District', 'Kind Eyes', '2022-08-10', '23:00:00', 'Los Angeles, CA', 342, 'He hit my leg and I lost my glasses', 'Should lose his license', 'Marshall', 'Mathers', 'yubbadubbado@gmail.com', '435-747-1943', 1),
+('false', 'true', 'true', 'true', 'Mary', 'Poppins', 'Seargeant', 4359, 'China Town District', 'Kind Eyes', '2022-08-10', '23:00:00', 'Los Angeles, CA', 342, 'He hit my leg and I lost my glasses', 'Should lose his license', 'Rick', 'and Morty', 'yubbadubbado@gmail.com', '435-747-1943', 1);
+
+
