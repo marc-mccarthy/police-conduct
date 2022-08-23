@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import {useSelector} from 'react-redux';
 import './ProgressBar.css';
 import Grid from '@mui/material/Grid';
+import Paper from '@mui/material/Paper';
+import { experimentalStyled as styled } from '@mui/material/styles';
 import { useLocation } from 'react-router-dom';
 
 // Basic functional component structure for React with default state
@@ -14,6 +16,12 @@ function TemplateFunction(props) {
   const location = useLocation();
   const [displayBar, setDisplayBar] = useState(false);
 
+  useEffect(()=>{
+    // routeCheck;
+    // console.log(currentRoute);
+  })
+
+  // displays addReport steps
   const startToFinish = [
     'Start', 
     'Officer Details', 
@@ -26,7 +34,7 @@ function TemplateFunction(props) {
 
   const currentRoute = location.pathname;
 
-  const progressBarPages = [
+  const progressBarRoutes = [
     '/start', 
     // '/officer-details', 
     // '/interaction-details', 
@@ -36,22 +44,20 @@ function TemplateFunction(props) {
     // '/done'
   ]
 
-  const routeCheck = () => {
-    if(currentRoute = progressBarPages){
-      setDisplayBar(true)
-    }
-  }
-
-  // const changeColor = () => {
-
-  // }
+  const Item = styled(Paper)(({theme})=>({
+    backgroundColor: theme.palette.mode === 'dark' ? 'blue' : '#fff',
+    ...theme.typography.body2,
+    padding: theme.spacing(2),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+  }));
 
   return (
     <Grid container spacing={3} justifyContent='space-evenly' direction='row' alignItems='center' columns={7}>
       {startToFinish.map(eachStep => {
         return (
-          <Grid item xs>
-            <item>{eachStep}</item>
+          <Grid item xs='auto'>
+            <Item>{eachStep}</Item>
           </Grid>
           )
       })}
