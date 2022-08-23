@@ -22,6 +22,10 @@ function InteractionSummary() {
     setInteractionSummary(e.target.value);
   }
 
+  const back = () => {
+    history.push('/interaction-details')
+  }
+
   const next = () => {
     // create new object
     let newInteractionSummary={
@@ -58,7 +62,7 @@ function InteractionSummary() {
         <p>Summary of interaction:</p>
         <textarea className='report-input' rows="20" onChange={handleSummary}/>
 
-        <Button>BACK</Button>
+        <Button onClick={back}>BACK</Button>
         <Button className='report-button' onClick={next}>NEXT</Button>
 
       </div>
