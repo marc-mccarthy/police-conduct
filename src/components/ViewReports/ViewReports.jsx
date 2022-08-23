@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import { Box } from '@mui/material';
+import { Box, Button } from '@mui/material';
 import LoadingBar from '../LoadingBar/LoadingBar';
 
 function ViewReports() {
@@ -28,7 +28,7 @@ function ViewReports() {
         <div>
           <h2>All Reports :</h2>
 
-          <div className="ReportList">
+          <div className="ProfileReportList">
             {reports.map((eachReport) => {
               return (
                 <div className="ReportItem" key={eachReport.id}>
@@ -36,7 +36,7 @@ function ViewReports() {
                   <p>{eachReport.reporter_first}</p>
                   <p>Date: {eachReport.interaction_date.substring(0,10)}</p>
                   <p>{eachReport.interaction_summary.substring(0, 30)}...</p>
-                  <button onClick={() => details(eachReport.id)}>Details</button>
+                  <Button variant="contained" color="primary" onClick={() => details(eachReport.id)}>Details</Button>
                 </div>
               );
             })}
