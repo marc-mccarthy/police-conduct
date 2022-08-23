@@ -4,19 +4,24 @@ import { useSelector } from 'react-redux';
 import { Button } from '@mui/material';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 
 function Outcomes() {
 
   const dispatch = useDispatch();
+  const history = useHistory();
 
 
   useEffect(() => {
     console.log();
   }, []);
 
+  const back = () => {
+    history.push('/interaction-summary')
+  }
 
-  const next=() => {
+  const next = () => {
     // create new object
     let newOutcomes={
       report_outcomes: reportOutcomes,
@@ -35,9 +40,11 @@ function Outcomes() {
 
         <h2>Outcomes</h2>
 
-        <p>First thing:</p>
+        <p>What, if anything, would you like to happen as a result of your report?</p>
+        <p>(We cannot guarantee that your desired outcome will happen.)</p>
+        <textarea className='report-input' rows="20" />
 
-        <Button>BACK</Button>
+        <Button onClick={back}>BACK</Button>
         <Button className='report-button' onClick={next}>NEXT</Button>
 
       </div>
