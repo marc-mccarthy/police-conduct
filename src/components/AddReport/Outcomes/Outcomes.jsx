@@ -12,19 +12,24 @@ function Outcomes() {
   const dispatch = useDispatch();
   const history = useHistory();
 
+  const [outcomes, setOutcomes] = useState('');
 
   useEffect(() => {
-    console.log();
-  }, []);
+    console.log(outcomes);
+  }, [outcomes]);
 
   const back = () => {
     history.push('/interaction-summary')
   }
 
+  const handleOutcomes = (e) => {
+    setOutcomes(e.target.value);
+  }
+
   const next = () => {
     // create new object
     let newOutcomes={
-      report_outcomes: reportOutcomes,
+      report_outcomes: outcomes,
     };
     console.log(newOutcomes);
     // send dispatch
@@ -42,7 +47,7 @@ function Outcomes() {
 
         <p>What, if anything, would you like to happen as a result of your report?</p>
         <p>(We cannot guarantee that your desired outcome will happen.)</p>
-        <textarea className='report-input' rows="20" />
+        <textarea className='report-input' rows="20" onChange={handleOutcomes} />
 
         <Button onClick={back}>BACK</Button>
         <Button className='report-button' onClick={next}>NEXT</Button>
