@@ -24,10 +24,10 @@ function Review() {
 
   const [formData, setFormData] = useState({
     anonymous: false,
-    email: '',
-    first: '',
-    last: '',
-    phone: '',
+    email: start.reporter_email,
+    first: start.report_first,
+    last: start.reporter_last,
+    phone: start.reporter_phone,
     publicReport: '',
     understand: false,
     verification: false,
@@ -44,11 +44,6 @@ function Review() {
     interactionSummary: '',
     outcomes: '',
   })
-
-  useEffect(() => {
-    console.log();
-  }, []);
-
 
   const next = () => {
     // create new object

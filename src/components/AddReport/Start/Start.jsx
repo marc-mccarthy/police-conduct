@@ -19,7 +19,7 @@ function Start() {
     first: '',
     last: '',
     phone: '',
-    publicReport: '',
+    publicReport: false,
     understand: false,
     verification: false
   });
