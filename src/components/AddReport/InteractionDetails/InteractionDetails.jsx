@@ -1,53 +1,36 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 
-import { Button, setRef } from '@mui/material';
+import { Button } from '@mui/material';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
+import InteractionDetailsContent from './InteractionDetailsContent';
 
 function InteractionDetails() {
 
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const [interactionDate, setInteractionDate] = useState('');
-  const [interactionTime, setInteractionTime] = useState('');
-  const [interactionLocation, setInteractionLocation] = useState('');
-  const [referenceNumber, setReferenceNumber] = useState('');
-
-  useEffect(() => {
-    console.log(interactionDate, interactionTime, interactionLocation, referenceNumber);
-  }, [interactionDate, interactionTime, interactionLocation, referenceNumber]);
+  const [formData, setFormData] = useState({
+    interactionDate: '',
+    interactionTime: '',
+    interactionLocation: '',
+    referenceNumber: '',
+  })
 
   const back = () => {
     history.push('/officer-details');
   };
 
-  const handleDate = (e) => {
-    setInteractionDate(e.target.value);
-  };
-
-  const handleLocation = (e) => {
-    setInteractionLocation(e.target.value);
-  };
-
-  const handleTime = (e) => {
-    setInteractionTime(e.target.value);
-  };
-
-  const handleReferenceNumber = (e) => {
-    setReferenceNumber(e.target.value);
-  };
-
   const next = () => {
     // create new object
     let newInteractionDetails = {
-      interaction_date: interactionDate,
-      interaction_time: interactionTime,
-      interaction_location: interactionLocation,
-      reference_number: referenceNumber
+      interaction_date: formData.interactionDate,
+      interaction_time: formData.interactionTime,
+      interaction_location: formData.interactionLocation,
+      reference_number: formData.referenceNumber
     };
     console.log(newInteractionDetails);
     // send dispatch
@@ -61,19 +44,7 @@ function InteractionDetails() {
 
       <div className='report-content'>
 
-        <h2>Interaction Details</h2>
-
-        <p>Date of interaction:</p>
-        <input className='report-input' type="date" onChange={handleDate} />
-
-        <p>Time of interaction:</p>
-        <input type='text' className='report-input' onChange={handleLocation} />
-
-        <p>Location of interaction:</p>
-        <input type='text' className='report-input' onChange={handleTime} />
-
-        <p>Incident reference number (if you have one):</p>
-        <input type='text' className='report-input' onChange={handleReferenceNumber} />
+        <InteractionDetailsContent formData={formData} setFormData={setFormData} />
 
         <Button onClick={back}>BACK</Button>
         <Button className='report-button' onClick={next}>NEXT</Button>
