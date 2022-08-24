@@ -1,6 +1,6 @@
-const interactionSummaryReducer = (state = {}, action) => {
+const interactionDetailsReducer = (state = {}, action) => {
   switch (action.type) {
-    case 'INTERACTION_SUMMARY_REDUCER':
+    case 'INTERACTION_DETAILS_REDUCER':
       console.log(action.payload);
       return action.payload;
     default:
@@ -8,4 +8,4 @@ const interactionSummaryReducer = (state = {}, action) => {
   }
 };
 
-export default interactionSummaryReducer;
+export default interactionDetailsReducer;
