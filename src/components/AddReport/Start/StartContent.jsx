@@ -72,7 +72,7 @@ function Start({formData, setFormData}) {
 
   return (
     <>
-
+    
         <h2>Report Form</h2>
 
         <h3>Accessibility</h3>
