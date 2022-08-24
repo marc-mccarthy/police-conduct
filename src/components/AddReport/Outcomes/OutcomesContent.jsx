@@ -3,16 +3,17 @@ import { useSelector } from 'react-redux';
 
 import { useEffect } from 'react';
 
-function OutcomesContent({ outcomes, setOutcomes }) {
-
+function OutcomesContent({ formData, setFormData }) {
 
   useEffect(() => {
-    console.log(outcomes);
-  }, [outcomes]);
-
+    console.log(formData);
+  }, [formData]);
 
   const handleOutcomes = (e) => {
-    setOutcomes(e.target.value);
+    setFormData({
+      ...formData,
+      outcomes: e.target.value
+    })
   }
 
   return (

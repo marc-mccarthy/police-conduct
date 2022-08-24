@@ -13,7 +13,9 @@ function Outcomes() {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const [outcomes, setOutcomes] = useState('');
+  const [formData, setFormData] = useState({
+    outcomes: '',
+  })
 
   const back = () => {
     history.push('/interaction-summary')
@@ -22,7 +24,7 @@ function Outcomes() {
   const next = () => {
     // create new object
     let newOutcomes = {
-      report_outcomes: outcomes,
+      report_outcomes: formData.outcomes,
     };
     console.log(newOutcomes);
     // send dispatch
@@ -36,7 +38,7 @@ function Outcomes() {
 
       <div className='report-content'>
 
-        <OutcomesContent outcomes={outcomes} setOutcomes={setOutcomes} />
+        <OutcomesContent formData={formData} setFormData={setFormData} />
 
         <Button onClick={back}>BACK</Button>
         <Button className='report-button' onClick={next}>NEXT</Button>

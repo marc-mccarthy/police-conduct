@@ -4,14 +4,17 @@ import { useSelector } from 'react-redux';
 import { TextField } from '@mui/material';
 import { useEffect } from 'react';
 
-function InteractionSummaryContent({ interactionSummary, setInteractionSummary }) {
+function InteractionSummaryContent({ formData, setFormData }) {
 
   useEffect(() => {
-    console.log(interactionSummary);
-  }, [interactionSummary]);
+    console.log(formData);
+  }, [formData]);
 
   const handleSummary = (e) => {
-    setInteractionSummary(e.target.value);
+    setFormData({
+      ...formData,
+      interaction: e.target.value
+    })
   }
 
   const wellWrittenReport = `1. Be Specific: Provide as much factual evidence as you can. Include dates, times, names, locations and any other information relevant to the situation.  For example, “At 10:30am on April 10, I was driving South on Main Street…\” 

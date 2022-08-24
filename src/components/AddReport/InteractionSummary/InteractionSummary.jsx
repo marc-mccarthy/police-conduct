@@ -12,7 +12,9 @@ function InteractionSummary() {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const [interactionSummary, setInteractionSummary] = useState('');
+  const [formData, setFormData] = useState({
+    interactionSummary: '',
+  })
 
   const back = () => {
     history.push('/interaction-details')
@@ -21,7 +23,7 @@ function InteractionSummary() {
   const next = () => {
     // create new object
     let newInteractionSummary = {
-      interaction_summary: interactionSummary
+      interaction_summary: formData.interactionSummary
     };
     console.log(newInteractionSummary);
     // send dispatch
@@ -35,7 +37,7 @@ function InteractionSummary() {
 
       <div className='report-content'>
 
-        <InteractionSummaryContent interactionSummary={interactionSummary} setInteractionSummary={setInteractionSummary} />
+        <InteractionSummaryContent formData={formData} setFormData={setFormData} />
 
         <Button onClick={back}>BACK</Button>
         <Button className='report-button' onClick={next}>NEXT</Button>
