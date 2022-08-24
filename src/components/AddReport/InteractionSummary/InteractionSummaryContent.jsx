@@ -6,14 +6,24 @@ import { useEffect } from 'react';
 
 function InteractionSummaryContent({ formData, setFormData }) {
 
+  const interactionSummary = useSelector(store => store.interactionSummaryReducer);
+
   useEffect(() => {
     console.log(formData);
   }, [formData]);
 
+  useEffect(() => {
+    if (Object.keys(interactionSummary).length > 0) {
+      setFormData({
+        interactionSummary: interactionSummary.interaction_summary
+      })
+    }
+  }, [interactionSummary])
+
   const handleSummary = (e) => {
     setFormData({
       ...formData,
-      interaction: e.target.value
+      interactionSummary: e.target.value
     })
   }
 
@@ -37,7 +47,7 @@ function InteractionSummaryContent({ formData, setFormData }) {
       {/* to style the disabled input https://stackoverflow.com/questions/62279125/material-ui-how-to-change-the-colour-of-a-disabled-textfield */}
 
       <p>Summary of interaction:</p>
-      <textarea className='report-input' rows="20" onChange={handleSummary} />
+      <textarea className='report-input' rows="20" onChange={handleSummary} defaultValue={interactionSummary.interaction_summary}/>
 
     </>
   );

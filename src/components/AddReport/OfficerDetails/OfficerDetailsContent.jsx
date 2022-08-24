@@ -72,7 +72,7 @@ function OfficerDetailsContent({ formData, setFormData }) {
       <h2>Officer Details</h2>
 
       <p>First name:</p>
-      <input className='report-input' onChange={handleOfficerFirst} defaultValue={formData.officerFirst} />
+      <input className='report-input' onChange={handleOfficerFirst} defaultValue={officerDetails.officer_first} />
       {/* this works now as well */}
 
       <p>Last name:</p>

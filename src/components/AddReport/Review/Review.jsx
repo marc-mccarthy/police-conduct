@@ -25,29 +25,6 @@ function Review() {
   const outcomes = useSelector(store => store.outcomesReducer);
 
   // TODO MAKE CHECKBOXES WITH USEEFFECT LIKE IN START? not showing correctly checked or not/needs to be controlled
-  // make these empty and then a useEffect to change the values?
-  // const [formData, setFormData] = useState({ // || '' or false?
-  //   anonymous: start.anonymous,
-  //   email: start.reporter_email,
-  //   first: start.report_first,
-  //   last: start.reporter_last,
-  //   phone: start.reporter_phone,
-  //   publicReport: start.public,
-  //   understand: start.handle_info,
-  //   verification: start.verification,
-  //   officerFirst: officerDetails.officer_first,
-  //   officerLast: officerDetails.officer_last,
-  //   officerRank: officerDetails.officer_rank,
-  //   officerBadge: officerDetails.officer_badge,
-  //   officerDept: officerDetails.officer_department,
-  //   officerAnything: officerDetails.officer_anythingelse,
-  //   interactionDate: '',
-  //   interactionTime: '',
-  //   interactionLocation: '',
-  //   referenceNumber: '',
-  //   interactionSummary: '',
-  //   outcomes: '',
-  // })
 
   const [formData, setFormData] = useState({
     anonymous: false,
@@ -73,7 +50,7 @@ function Review() {
   })
 
   useEffect(() => {
-    if (Object.keys(start).length > 0 && Object.keys(officerDetails).length > 0 && Object.keys(interactionDetails).length > 0) {
+    if (Object.keys(start).length > 0 && Object.keys(officerDetails).length > 0 && Object.keys(interactionDetails).length > 0 && Object.keys(interactionSummary).length > 0 && Object.keys(outcomes).length > 0) {
       setFormData({
         // ...formData,
         anonymous: start.anonymous,
@@ -90,14 +67,15 @@ function Review() {
         officerBadge: officerDetails.officer_badge,
         officerDept: officerDetails.officer_department,
         officerAnything: officerDetails.officer_anythingelse,
-        interactionDate: '',
-        interactionTime: '',
-        interactionLocation: '',
-        referenceNumber: '',
-        interactionSummary: '',
+        interactionDate: interactionDetails.interaction_date,
+        interactionTime: interactionDetails.interaction_time,
+        interactionLocation: interactionDetails.interaction_location,
+        referenceNumber: interactionDetails.reference_number,
+        interactionSummary: interactionSummary.interaction_summary,
+        outcomes: outcomes.report_outcomes,
       })
     }
-  }, [start, officerDetails, interactionDetails])
+  }, [start, officerDetails, interactionDetails, interactionSummary, outcomes])
 
   const back = () => {
     history.push('/outcomes')
