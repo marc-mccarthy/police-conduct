@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { Checkbox } from '@mui/material';
 import { useEffect } from 'react';
 
-function Start({formData, setFormData}) {
+function StartContent({formData, setFormData}) {
 
   useEffect(() => {
     console.log(formData);
@@ -72,7 +72,7 @@ function Start({formData, setFormData}) {
 
   return (
     <>
-    
+
         <h2>Report Form</h2>
 
         <h3>Accessibility</h3>
@@ -114,4 +114,4 @@ function Start({formData, setFormData}) {
   );
 }
 
-export default Start;
+export default StartContent;
