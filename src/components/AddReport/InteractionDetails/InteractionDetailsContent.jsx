@@ -3,12 +3,25 @@ import { useSelector } from 'react-redux';
 
 import { useEffect } from 'react';
 
-function InteractionDetailsContent({formData, setFormData}) {
+function InteractionDetailsContent({ formData, setFormData }) {
+
+  const interactionDetails = useSelector(store => store.interactionDetailsReducer);
 
   useEffect(() => {
     console.log(formData);
   }, [formData]);
 
+  // this useEffect allows us to go back, forward, and back again and the defaultValue will stay correct
+  useEffect(() => {
+    if (Object.keys(interactionDetails).length > 0) {
+      setFormData({
+        interactionDate: interactionDetails.interaction_date,
+        interactionTime: interactionDetails.interaction_time,
+        interactionLocation: interactionDetails.interaction_location,
+        referenceNumber: interactionDetails.reference_number,
+      })
+    }
+  }, [interactionDetails])
 
   const handleDate = (e) => {
     setFormData({
@@ -43,16 +56,17 @@ function InteractionDetailsContent({formData, setFormData}) {
       <h2>Interaction Details</h2>
 
       <p>Date of interaction:</p>
-      <input className='report-input' type="date" onChange={handleDate} />
+      <input className='report-input' type="date" onChange={handleDate} defaultValue={interactionDetails.interaction_date} />
 
       <p>Time of interaction:</p>
-      <input type='text' className='report-input' onChange={handleLocation} />
+      <input type='text' className='report-input' onChange={handleTime} defaultValue={interactionDetails.interaction_time} />
+      <p>{JSON.stringify(interactionDetails)}</p>
 
       <p>Location of interaction:</p>
-      <input type='text' className='report-input' onChange={handleTime} />
+      <input type='text' className='report-input' onChange={handleLocation} defaultValue={interactionDetails.interaction_location} />
 
       <p>Incident reference number (if you have one):</p>
-      <input type='text' className='report-input' onChange={handleReferenceNumber} />
+      <input type='text' className='report-input' onChange={handleReferenceNumber} defaultValue={interactionDetails.reference_number} />
 
     </>
   );

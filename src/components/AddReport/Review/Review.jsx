@@ -10,10 +10,12 @@ import OfficerDetailsContent from '../OfficerDetails/OfficerDetailsContent';
 import InteractionDetailsContent from '../InteractionDetails/InteractionDetailsContent';
 import InteractionSummaryContent from '../InteractionSummary/InteractionSummaryContent';
 import OutcomesContent from '../Outcomes/OutcomesContent';
+import { useHistory } from 'react-router-dom';
 
 function Review() {
 
   const dispatch = useDispatch();
+  const history = useHistory();
 
   // form reducer values from the store to be used for review
   const start = useSelector(store => store.startReducer);
@@ -22,13 +24,38 @@ function Review() {
   const interactionSummary = useSelector(store => store.interactionSummaryReducer);
   const outcomes = useSelector(store => store.outcomesReducer);
 
+  // TODO MAKE CHECKBOXES WITH USEEFFECT LIKE IN START? not showing correctly checked or not/needs to be controlled
+  // make these empty and then a useEffect to change the values?
+  // const [formData, setFormData] = useState({ // || '' or false?
+  //   anonymous: start.anonymous,
+  //   email: start.reporter_email,
+  //   first: start.report_first,
+  //   last: start.reporter_last,
+  //   phone: start.reporter_phone,
+  //   publicReport: start.public,
+  //   understand: start.handle_info,
+  //   verification: start.verification,
+  //   officerFirst: officerDetails.officer_first,
+  //   officerLast: officerDetails.officer_last,
+  //   officerRank: officerDetails.officer_rank,
+  //   officerBadge: officerDetails.officer_badge,
+  //   officerDept: officerDetails.officer_department,
+  //   officerAnything: officerDetails.officer_anythingelse,
+  //   interactionDate: '',
+  //   interactionTime: '',
+  //   interactionLocation: '',
+  //   referenceNumber: '',
+  //   interactionSummary: '',
+  //   outcomes: '',
+  // })
+
   const [formData, setFormData] = useState({
     anonymous: false,
-    email: start.reporter_email,
-    first: start.report_first,
-    last: start.reporter_last,
-    phone: start.reporter_phone,
-    publicReport: '',
+    email: '',
+    first: '',
+    last: '',
+    phone: '',
+    publicReport: false,
     understand: false,
     verification: false,
     officerFirst: '',
@@ -44,6 +71,37 @@ function Review() {
     interactionSummary: '',
     outcomes: '',
   })
+
+  useEffect(() => {
+    if (Object.keys(start).length > 0 && Object.keys(officerDetails).length > 0 && Object.keys(interactionDetails).length > 0) {
+      setFormData({
+        // ...formData,
+        anonymous: start.anonymous,
+        email: start.reporter_email,
+        first: start.reporter_first,
+        last: start.reporter_last,
+        phone: start.reporter_phone,
+        publicReport: start.public,
+        understand: start.handle_info,
+        verification: start.verification,
+        officerFirst: officerDetails.officer_first,
+        officerLast: officerDetails.officer_last,
+        officerRank: officerDetails.officer_rank,
+        officerBadge: officerDetails.officer_badge,
+        officerDept: officerDetails.officer_department,
+        officerAnything: officerDetails.officer_anythingelse,
+        interactionDate: '',
+        interactionTime: '',
+        interactionLocation: '',
+        referenceNumber: '',
+        interactionSummary: '',
+      })
+    }
+  }, [start, officerDetails, interactionDetails])
+
+  const back = () => {
+    history.push('/outcomes')
+  }
 
   const next = () => {
     // create new object
@@ -68,7 +126,8 @@ function Review() {
 
         <OutcomesContent formData={formData} setFormData={setFormData} />
 
-        <Button>BACK</Button>
+        <Button onClick={back}>Cancel</Button>
+        {/* TODO Change this to go back to home/refresh everything */}
         <Button className='report-button' onClick={next}>NEXT</Button>
 
       </div>

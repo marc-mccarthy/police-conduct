@@ -16,8 +16,12 @@ function StartContent({ formData, setFormData }) {
     // if start reducer is filled, setFormData (anonymous, publicReport, understand, verification) to reducer data. we do this so the checked prop in the MUI checkbox behaves appropriately
     if (Object.keys(start).length > 0) {
       setFormData({
-        ...formData,
+        // ...formData,
         anonymous: start.anonymous,
+        email: start.reporter_email,
+        first: start.reporter_first,
+        last: start.reporter_last,
+        phone: start.reporter_phone,
         publicReport: start.public,
         understand: start.handle_info,
         verification: start.verification,
