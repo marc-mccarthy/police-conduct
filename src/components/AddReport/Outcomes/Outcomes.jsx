@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
+import OutcomesContent from './OutcomesContent';
 
 function Outcomes() {
 
@@ -14,26 +15,18 @@ function Outcomes() {
 
   const [outcomes, setOutcomes] = useState('');
 
-  useEffect(() => {
-    console.log(outcomes);
-  }, [outcomes]);
-
   const back = () => {
     history.push('/interaction-summary')
   }
 
-  const handleOutcomes = (e) => {
-    setOutcomes(e.target.value);
-  }
-
   const next = () => {
     // create new object
-    let newOutcomes={
+    let newOutcomes = {
       report_outcomes: outcomes,
     };
     console.log(newOutcomes);
     // send dispatch
-    dispatch({type: 'OUTCOMES_SAGA', payload: newOutcomes});
+    dispatch({ type: 'OUTCOMES_SAGA', payload: newOutcomes });
     // history.push to next page
     history.push('/review');
   }
@@ -43,11 +36,7 @@ function Outcomes() {
 
       <div className='report-content'>
 
-        <h2>Outcomes</h2>
-
-        <p>What, if anything, would you like to happen as a result of your report?</p>
-        <p>(We cannot guarantee that your desired outcome will happen.)</p>
-        <textarea className='report-input' rows="20" onChange={handleOutcomes} />
+        <OutcomesContent outcomes={outcomes} setOutcomes={setOutcomes} />
 
         <Button onClick={back}>BACK</Button>
         <Button className='report-button' onClick={next}>NEXT</Button>
