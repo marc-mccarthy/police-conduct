@@ -11,13 +11,15 @@ import './Profile.css'
 
 
 function Profile() {
+  const userReports = useSelector((store) => store.eachReport);
     const reports = useSelector((store) => store.reports);
     const user = useSelector((store) => store.user);
     const history = useHistory();
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch({ type: 'FETCH_ALL_REPORTS' });
+      dispatch({ type: 'EACH_USER_REPORT' });
+      dispatch({ type: 'FETCH_ALL_REPORTS' });
     }, []);
     const details = (id) => {
         history.push(`/reports/${id}`)
@@ -25,9 +27,9 @@ function Profile() {
 
     return (
         <div className="container">
-          {reports.length == 0 ? (
+          {reports == 0  || userReports == 0 ?(
             <Box mt={25} display="flex" justifyContent="center" alignItems="center">
-              <LoadingBar />
+              <h1>{user.username} Has No Reports</h1>
             </Box>
           ) : (
             <div>

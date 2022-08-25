@@ -20,10 +20,17 @@ function ViewReports() {
 
   return (
     <div className="container">
-      {reports.length == 0 ? (
-        <Box mt={25} display="flex" justifyContent="center" alignItems="center">
-          <LoadingBar />
-        </Box>
+      {reports == 0 ? (
+        <div>
+          <Box
+            mt={25}
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+          >
+            <h1>No Reports</h1>
+          </Box>
+        </div>
       ) : (
         <div>
           <h2>All Reports :</h2>
@@ -34,9 +41,15 @@ function ViewReports() {
                 <div className="ReportItem" key={eachReport.id}>
                   <h3>Report # {eachReport.id}</h3>
                   <p>{eachReport.reporter_first}</p>
-                  <p>Date: {eachReport.interaction_date.substring(0,10)}</p>
+                  <p>Date: {eachReport.interaction_date.substring(0, 10)}</p>
                   <p>{eachReport.interaction_summary.substring(0, 30)}...</p>
-                  <Button variant="contained" color="primary" onClick={() => details(eachReport.id)}>Details</Button>
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    onClick={() => details(eachReport.id)}
+                  >
+                    Details
+                  </Button>
                 </div>
               );
             })}
