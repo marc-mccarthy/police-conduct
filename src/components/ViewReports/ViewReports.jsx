@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { Box, Button } from '@mui/material';
 import LoadingBar from '../LoadingBar/LoadingBar';
 
@@ -20,7 +20,7 @@ function ViewReports() {
 
   return (
     <div className="container">
-      {reports == 0 ? (
+      {reports.length == 0 ? (
         <div>
           <Box
             mt={25}
@@ -28,7 +28,7 @@ function ViewReports() {
             justifyContent="center"
             alignItems="center"
           >
-            <h1>No Reports</h1>
+            <h1>No Reports in PoliceConduct.org</h1>
           </Box>
         </div>
       ) : (
