@@ -5,7 +5,7 @@ import { Button, Checkbox, FormHelperText } from '@mui/material';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-
+import ProgressBar from '../../ProgressBar/ProgressBar';
 
 function Start() {
 
@@ -83,54 +83,53 @@ function Start() {
   }
 
   return (
-    <div className='report'>
+      <div className='report'>
+        <div><ProgressBar /></div>
+        <br></br>
+        <h2 className='report-form'>Report Form</h2>
 
-      <h2 className='report-form'>Report Form</h2>
+        <div className='report-content'>
+          <h3>Accessibility</h3>
+          <p>If you need help completing this form, please email dale.lotts@gmail.com.</p>
 
+          <h3>Anonymous</h3>
+          <p><Checkbox onChange={handleAnonymous} /> Check this box if you want your report to be filed anonymously.</p>
 
-      <div className='report-content'>
+          {
+            anonymous ?
+              <> </>
+              :
+              <span>
+                <p>First name:</p>
+                <input className='report-input' onChange={handleFirst} />
 
-        <h3>Accessibility</h3>
-        <p>If you need help completing this form, please email dale.lotts@gmail.com.</p>
+                <p>Last name:</p>
+                <input className='report-input' onChange={handleLast} />
 
-        <h3>Anonymous</h3>
-        <p><Checkbox onChange={handleAnonymous} /> Check this box if you want your report to be filed anonymously.</p>
+                <p>Email:</p>
+                <input className='report-input' onChange={handleEmail} />
 
-        {
-          anonymous ?
-            <> </>
-            :
-            <span>
-              <p>First name:</p>
-              <input className='report-input' onChange={handleFirst} />
+                <p>Phone number:</p>
+                <input className='report-input' onChange={handlePhone} />
+              </span>
+          }
 
-              <p>Last name:</p>
-              <input className='report-input' onChange={handleLast} />
+          <h3>Public</h3>
+          <p><Checkbox onChange={handlePublicReport}/> Check this box if you want your report to be public. (Your personal details will not be shared, only your username.)</p>
 
-              <p>Email:</p>
-              <input className='report-input' onChange={handleEmail} />
+          <h3>Verification</h3>
+          <p><Checkbox onChange={handleVerification}/> *Check this box signifying you are NOT submitting this form on behalf of someone else. (*Required)</p>
 
-              <p>Phone number:</p>
-              <input className='report-input' onChange={handlePhone} />
-            </span>
-        }
+          <h3>How we handle your information</h3>
+          <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+          <p><Checkbox onChange={handleUnderstand}/> *I understand how you handle my information. (*Required) </p>
+          
+          <Button className='report-button' onClick={next}>NEXT</Button>
 
-        <h3>Public</h3>
-        <p><Checkbox onChange={handlePublicReport}/> Check this box if you want your report to be public. (Your personal details will not be shared, only your username.)</p>
-
-        <h3>Verification</h3>
-        <p><Checkbox onChange={handleVerification}/> *Check this box signifying you are NOT submitting this form on behalf of someone else. (*Required)</p>
-
-        <h3>How we handle your information</h3>
-        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
-        <p><Checkbox onChange={handleUnderstand}/> *I understand how you handle my information. (*Required) </p>
-        
-        <Button className='report-button' onClick={next}>NEXT</Button>
+        </div>
 
       </div>
-
-    </div>
-  );
+    );
 }
 
 export default Start;

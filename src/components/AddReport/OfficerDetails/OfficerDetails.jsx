@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { Button } from '@mui/material';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import ProgressBar from '../../ProgressBar/ProgressBar';
 
 
 function OfficerDetails() {
@@ -28,7 +29,7 @@ function OfficerDetails() {
 
   return (
     <div className='report'>
-
+      <div><ProgressBar /></div>
       <h2 className='report-form'>Officer Details</h2>
 
       <div className='report-content'>

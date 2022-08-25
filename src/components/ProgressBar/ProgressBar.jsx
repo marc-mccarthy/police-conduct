@@ -1,68 +1,85 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import {useSelector} from 'react-redux';
-import './ProgressBar.css';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import { experimentalStyled as styled } from '@mui/material/styles';
 import { useLocation } from 'react-router-dom';
 
-// Basic functional component structure for React with default state
-// value setup. When making a new component be sure to replace the
-// component name TemplateFunction with the name for the new component.
-function TemplateFunction(props) {
-  // Using hooks we're creating local state for a "heading" variable with
-  // a default value of 'Functional Component'
+function ProgressBar(props) {
   const store = useSelector((store) => store);
   const location = useLocation();
-  const [displayBar, setDisplayBar] = useState(false);
 
-  useEffect(()=>{
-    // routeCheck;
-    // console.log(currentRoute);
-  })
-
-  // displays addReport steps
+  // displays addReport steps and their respective location.pathname
   const startToFinish = [
-    'Start', 
-    'Officer Details', 
-    'Interaction Details', 
-    'Description', 
-    'Outcomes', 
-    'Review', 
-    'Done'
+    {
+      page:'Start',
+      path:'/start'
+    },
+    {
+      page:'Officer Details',
+      path:'/officer-details'
+    },
+    {
+      page:'Interaction Details',
+      path:'/interaction-details'
+    },
+    {
+      page:'Description',
+      path:'/description'
+    }, 
+    {
+      page:'Outcomes',
+      path:'/outcomes'
+    },
+    { 
+      page:'Review',
+      path:'/review'
+    },
+    { 
+      page:'Done',
+      path:'/done'
+    }
   ];
 
-  const currentRoute = location.pathname;
+  const currentPage = location.pathname;
 
-  const progressBarRoutes = [
-    '/start', 
-    // '/officer-details', 
-    // '/interaction-details', 
-    // '/description', 
-    // '/outcomes', 
-    // '/review', 
-    // '/done'
-  ]
-
-  const Item = styled(Paper)(({theme})=>({
-    backgroundColor: theme.palette.mode === 'dark' ? 'blue' : '#fff',
+  const Other = styled(Paper)(({theme})=>({
+    backgroundColor: '#fff',
     ...theme.typography.body2,
-    padding: theme.spacing(2),
+    padding: '5px',
     textAlign: 'center',
-    color: theme.palette.text.secondary,
+    color: '#000000',
+    fontSize: '14px',
+  }));
+
+  const Current = styled(Paper)(({theme})=>({
+    backgroundColor: '#0000FF',
+    ...theme.typography.body2,
+    padding: '15px',
+    textAlign: 'center',
+    color: '#fff',
+    fontSize: '20px'
   }));
 
   return (
     <Grid container spacing={3} justifyContent='space-evenly' direction='row' alignItems='center' columns={7}>
-      {startToFinish.map(eachStep => {
-        return (
-          <Grid item xs='auto'>
-            <Item>{eachStep}</Item>
-          </Grid>
-          )
-      })}
+        {startToFinish.map(eachPage => {
+          if(eachPage.path === currentPage){
+            return (
+              <Grid item xs='auto'>
+                <Current>{eachPage.page}</Current>
+              </Grid> 
+            )
+          }else {
+            return (
+              <Grid item xs='auto'>
+                <Other>{eachPage.page}</Other>
+              </Grid> 
+            )
+          }
+        })}
     </Grid>
-    )
+  )
 }
 
-export default TemplateFunction;
+export default ProgressBar;
