@@ -27,7 +27,7 @@ function Profile() {
 
     return (
         <div className="container">
-          {reports == 0  || userReports == 0 ?(
+          {reports.length === 0  || userReports.length === 0 ?(
             <Box mt={25} display="flex" justifyContent="center" alignItems="center">
               <h1>{user.username} Has No Reports</h1>
             </Box>
