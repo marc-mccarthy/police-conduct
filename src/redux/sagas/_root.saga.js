@@ -7,6 +7,7 @@ import officerDetailsSaga from './officerDetails.saga';
 import interactionDetailsSaga from './interactionDetails.saga';
 import interactionSummarySaga from './interactionSummary.saga';
 import outcomesSaga from './outcomes.saga';
+import reviewSaga from './review.saga';
 import fetchReportsSaga from './fetchReports.saga';
 import eachReportSaga from './eachReport.saga';
 import deleteReportSaga from './deleteReport.saga';
@@ -28,6 +29,7 @@ export default function* rootSaga() {
     interactionDetailsSaga(),
     interactionSummarySaga(),
     outcomesSaga(),
+    reviewSaga(),
     fetchReportsSaga(),
     eachReportSaga(),
     deleteReportSaga(),

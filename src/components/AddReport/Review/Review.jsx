@@ -82,12 +82,38 @@ function Review() {
   }
 
   const next = () => {
-    // create new object
-
-    // send dispatch
-
-    // TODO: history.push to next page
-  }
+      // create new object
+      let report = {
+          anonymous: start.anonymous,
+          public: start.public,
+          verification: start.verification,
+          handle_info: start.handle_info,
+          officer_first: officerDetails.officer_first,
+          officer_last: officerDetails.officer_last,
+          officer_rank: officerDetails.officer_rank,
+          officer_badge: officerDetails.officer_badge,
+          officer_department: officerDetails.officer_department,
+          officer_anythingelse: officerDetails.officer_anythingelse,
+          interaction_date: interactionDetails.interaction_date,
+          interaction_time: interactionDetails.interaction_time,
+          interaction_location: interactionDetails.interaction_location,
+          reference_number: interactionDetails.reference_number,
+          interaction_summary: interactionSummary.interaction_summary,
+          report_outcomes: outcomes.report_outcomes,
+          reporter_first: start.reporter_first,
+          reporter_last: start.reporter_last,
+          reporter_email: start.reporter_email,
+          reporter_phone: start.reporter_phone,
+      };
+      console.log(report);
+      // send dispatch
+      dispatch({
+          type: "REVIEW_SAGA",
+          payload: report,
+      });
+      // history.push to next page
+      history.push("/submitted");
+  };
 
   return (
     <div className='report'>

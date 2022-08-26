@@ -3,7 +3,7 @@
     padding: 15px;
     font-size: large;
   }
-  
+
   .details_page {
     display: flex;
     right: 0;
@@ -12,4 +12,3 @@
     bottom: 0;
     margin: auto;
   }
-  
