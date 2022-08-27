@@ -55,10 +55,13 @@ function ProgressBar(props) {
   const Current = styled(Paper)(({theme})=>({
     backgroundColor: '#0000FF',
     ...theme.typography.body2,
-    padding: '15px',
+    padding: '10px',
     textAlign: 'center',
     color: '#fff',
-    fontSize: '20px'
+    fontSize: '20px',
+    letterSpacing: '1.5px',
+    fontWeight: 'bold',
+    border: '2px solid white',
   }));
 
   return (

@@ -29,7 +29,7 @@ function OfficerDetails() {
 
   return (
     <div className='report'>
-      <div><ProgressBar /></div>
+      
       <h2 className='report-form'>Officer Details</h2>
 
       <div className='report-content'>

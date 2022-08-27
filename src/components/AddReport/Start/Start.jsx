@@ -84,8 +84,7 @@ function Start() {
 
   return (
       <div className='report'>
-        <div><ProgressBar /></div>
-        <br></br>
+
         <h2 className='report-form'>Report Form</h2>
 
         <div className='report-content'>
