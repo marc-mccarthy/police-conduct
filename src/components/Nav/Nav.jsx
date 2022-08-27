@@ -5,13 +5,11 @@ import './Nav.css';
 import { useSelector } from 'react-redux';
 import SideBar from '../SideBar/SideBar';
 import ProgressBar from '../ProgressBar/ProgressBar';
-import { useHistory } from 'react-router';
 
 
 function Nav() {
   const user = useSelector((store) => store.user);
   const location = useLocation();
-  const history = useHistory();
 
   const [show, setShow] = useState(false)
 
@@ -20,8 +18,6 @@ function Nav() {
   const addReportPaths = ['/start', '/officer-details', '/interaction-details', '/description', '/outcomes', '/review', '/done']
 
   useEffect(()=>{
-    // console.log(addReportPaths.includes(currentLocation))
-    // console.log(show)
     handleProgressBar();
   });
 
