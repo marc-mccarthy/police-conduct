@@ -132,7 +132,7 @@ function Review() {
 
         <Button onClick={back}>Cancel</Button>
         {/* TODO Change this to go back to home/refresh everything */}
-        <Button className='report-button' onClick={next}>NEXT</Button>
+        <Button className='report-button' onClick={next} color="secondary">SUBMIT</Button>
 
       </div>
 
