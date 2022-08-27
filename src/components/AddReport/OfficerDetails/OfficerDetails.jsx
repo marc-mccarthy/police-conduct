@@ -4,8 +4,6 @@ import { useSelector } from 'react-redux';
 import { Button } from '@mui/material';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import ProgressBar from '../../ProgressBar/ProgressBar';
-
 
 function OfficerDetails() {
 
