@@ -35,10 +35,10 @@ function ReportDetails() {
     if (user.id === reports[0].userID) {
       return (
         <div>
-          <Button variant="contained" color="primary" onClick={delete_Report}>
+          <Button color="error" onClick={delete_Report}>
             Delete
           </Button>
-          <Button variant="contained" color="primary" onClick={console.log('hello')}>
+          <Button onClick={console.log('hello')}>
             Edit
           </Button>
         </div>

@@ -1,3 +1,4 @@
+import { Button } from '@mui/material';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
@@ -58,7 +59,10 @@ function RegisterForm() {
         </label>
       </div>
       <div>
-        <input className="userbtn" type="submit" name="submit" value="Register" /> <button className='guestbtn' type='button' onClick={goToLanding}>Continue as Guest</button>
+        {/* <input className="userbtn" type="submit" name="submit" value="Register" /> */}
+        <Button type="submit" name="submit">Register</Button>
+        {/* <button className='guestbtn' type='button' onClick={goToLanding}>Continue as Guest</button> */}
+        <Button onClick={goToLanding} color="secondary" className="continue--guest">Continue as Guest</Button>
       </div>
     </form>
   );
