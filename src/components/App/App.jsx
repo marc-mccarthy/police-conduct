@@ -57,6 +57,9 @@ function App() {
         main: '#18BC7E',
         contrastText: "#fff"
       },
+      text: {
+        disabled: '#00000' //https://newdevzone.com/posts/material-ui-how-to-change-the-colour-of-a-disabled-textfield
+      },
     },
     components: {
       MuiButton: {
@@ -65,14 +68,6 @@ function App() {
           size: 'small'
         },
       },
-      // MuiTextField: {
-      //   defaultProps: {
-      //     variant: 'outlined',
-      //     size: 'small',
-      //     margin: 'normal',
-      //     multiline: true,
-      //   },
-      // },
     },
   })
 
