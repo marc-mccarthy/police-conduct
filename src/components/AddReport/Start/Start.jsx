@@ -5,7 +5,6 @@ import { Button, Checkbox, FormHelperText } from '@mui/material';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import ProgressBar from '../../ProgressBar/ProgressBar';
 
 function Start() {
 
