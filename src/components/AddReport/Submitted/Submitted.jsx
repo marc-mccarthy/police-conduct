@@ -3,13 +3,11 @@ import { useSelector } from 'react-redux';
 
 import { Button } from '@mui/material';
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 
 function Submitted() {
 
-  const dispatch = useDispatch();
   const history = useHistory();
 
   const reportID = useSelector(store => store.reportID);
