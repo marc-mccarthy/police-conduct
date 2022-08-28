@@ -15,6 +15,6 @@
 .landing {
   column-count: 2;
   column-rule-width: 50%;
-  column-gap: 1px;
+  column-gap: 0px;
   color: white;
 }

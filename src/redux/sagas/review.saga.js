@@ -11,7 +11,9 @@ function* review(action) {
     // check incoming action for report data
     console.log(action.payload);
     // get all updated public reports from server
-    yield axios.post('/api/reports/addReport', action.payload)
+    const response = yield axios.post('/api/reports/addReport', action.payload);
+    console.log('id from review saga response:', response);
+    yield put({type: 'SHOW_ID', payload: response.data});
   } catch (error) {
     console.log('Error with reviewSaga:', error);
   }
