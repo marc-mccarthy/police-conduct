@@ -12,6 +12,7 @@ function Submitted() {
   const dispatch = useDispatch();
   const history = useHistory();
 
+  const reportID = useSelector(store => store.reportID);
 
   useEffect(() => {
     console.log();
@@ -25,7 +26,12 @@ function Submitted() {
         <h2>Submitted</h2>
 
         <p>Thank you for your submission! Your report will be emailed to the appropriate Internal Affairs office.</p>
-        <p>Your report number is: </p>
+        {
+          reportID ?
+          <p>Your report number is: {reportID}</p>
+          :
+          <></>
+        }
 
         <br></br>
 
