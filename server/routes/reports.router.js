@@ -28,7 +28,7 @@ router.post('/addReport', (req, res) => {
     // post query adding our form data for report if it's an logged in user
     pool
       .query(
-        `INSERT INTO report ("anonymous", "public", "verification", "handle_info", "officer_first", "officer_last", "officer_rank", "officer_badge", "officer_department", "officer_anythingelse", "interaction_date", "interaction_time", "interaction_location", "reference_number", "interaction_summary", "report_outcomes", "reporter_first", "reporter_last", "reporter_email", "reporter_phone", "userID") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21);`,
+        `INSERT INTO report ("anonymous", "public", "verification", "handle_info", "officer_first", "officer_last", "officer_rank", "officer_badge", "officer_department", "officer_anythingelse", "interaction_date", "interaction_time", "interaction_location", "reference_number", "interaction_summary", "report_outcomes", "reporter_first", "reporter_last", "reporter_email", "reporter_phone", "userID") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21) RETURNING "id";`,
         [
           req.body.anonymous, // $1
           req.body.public, // $2
@@ -53,7 +53,12 @@ router.post('/addReport', (req, res) => {
           req.user.id, // $21
         ]
       )
-      .then(() => res.sendStatus(201))
+      .then((result) => {
+      console.log('New Report Id:', result.rows[0].id);
+      const newID = result.rows[0].id;
+      res.send(newID.toString());
+      // res.sendStatus(201);
+      })
       .catch(err => {
         console.log('Form submission failed: ', err);
         res.sendStatus(500);
@@ -63,7 +68,7 @@ router.post('/addReport', (req, res) => {
   if (req.user === undefined) {
     pool
       .query(
-        `INSERT INTO report ("anonymous", "public", "verification", "handle_info", "officer_first", "officer_last", "officer_rank", "officer_badge", "officer_department", "officer_anythingelse", "interaction_date", "interaction_time", "interaction_location", "reference_number", "interaction_summary", "report_outcomes", "reporter_first", "reporter_last", "reporter_email", "reporter_phone") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20);`,
+        `INSERT INTO report ("anonymous", "public", "verification", "handle_info", "officer_first", "officer_last", "officer_rank", "officer_badge", "officer_department", "officer_anythingelse", "interaction_date", "interaction_time", "interaction_location", "reference_number", "interaction_summary", "report_outcomes", "reporter_first", "reporter_last", "reporter_email", "reporter_phone") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20) RETURNING "id";`,
         [
           req.body.anonymous, // $1
           req.body.public, // $2
@@ -87,7 +92,10 @@ router.post('/addReport', (req, res) => {
           req.body.reporter_phone, // $20
         ]
       )
-      .then(() => res.sendStatus(201))
+      .then((result) => {
+        console.log('New Report Id:', result.rows[0].id);
+        res.sendStatus(201);
+        })
       .catch(err => {
         console.log('Form submission failed: ', err);
         res.sendStatus(500);
