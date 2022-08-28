@@ -19,14 +19,15 @@ function ProgressBar(props) {
       page:'Officer Details',
       path:'/officer-details'
     },
+
     {
       page:'Interaction Details',
       path:'/interaction-details'
     },
     {
-      page:'Description',
-      path:'/description'
-    }, 
+      page:'Interaction Summary',
+      path:'/interaction-summary'
+    },
     {
       page:'Outcomes',
       path:'/outcomes'
@@ -36,8 +37,8 @@ function ProgressBar(props) {
       path:'/review'
     },
     { 
-      page:'Done',
-      path:'/done'
+      page:'Submitted',
+      path:'/submitted'
     }
   ];
 

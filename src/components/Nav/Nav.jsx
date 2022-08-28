@@ -15,7 +15,7 @@ function Nav() {
 
   const currentLocation = location.pathname;
 
-  const addReportPaths = ['/start', '/officer-details', '/interaction-details', '/description', '/outcomes', '/review', '/done']
+  const addReportPaths = ['/start', '/officer-details', '/interaction-details', '/interaction-summary',  '/outcomes', '/review', '/submitted']
 
   useEffect(()=>{
     handleProgressBar();
