@@ -1,0 +1,14 @@
+.ReportItem {
+    margin: auto;
+    padding: 15px;
+    font-size: large;
+  }
+
+  .details_page {
+    display: flex;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+  }

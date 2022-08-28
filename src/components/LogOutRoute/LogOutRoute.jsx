@@ -13,7 +13,7 @@ function LogOutRoute() {
 
   useEffect(() => {
     dispatch({ type: 'LOGOUT' })
-    history.push('/');
+    history.push('/profile');
 
   }, [])
   return (

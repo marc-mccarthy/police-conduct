@@ -14,7 +14,7 @@ export const SidebarData = [
   },
   {
     title: 'View Reports',
-    path: '/viewReport',
+    path: '/viewReports',
     icon: <TbIcons.TbReportAnalytics />,
     cName: 'nav-text'
   },

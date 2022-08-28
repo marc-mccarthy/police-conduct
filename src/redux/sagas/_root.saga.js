@@ -2,7 +2,15 @@ import { all } from 'redux-saga/effects';
 import loginSaga from './login.saga';
 import registrationSaga from './registration.saga';
 import userSaga from './user.saga';
-import addReportSaga from './addReport.saga';
+import startSaga from './start.saga';
+import officerDetailsSaga from './officerDetails.saga';
+import interactionDetailsSaga from './interactionDetails.saga';
+import interactionSummarySaga from './interactionSummary.saga';
+import outcomesSaga from './outcomes.saga';
+import reviewSaga from './review.saga';
+import fetchReportsSaga from './fetchReports.saga';
+import eachReportSaga from './eachReport.saga';
+import deleteReportSaga from './deleteReport.saga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -16,6 +24,14 @@ export default function* rootSaga() {
     loginSaga(), // login saga is now registered
     registrationSaga(),
     userSaga(),
-    addReportSaga(),
+    startSaga(),
+    officerDetailsSaga(),
+    interactionDetailsSaga(),
+    interactionSummarySaga(),
+    outcomesSaga(),
+    reviewSaga(),
+    fetchReportsSaga(),
+    eachReportSaga(),
+    deleteReportSaga(),
   ]);
 }

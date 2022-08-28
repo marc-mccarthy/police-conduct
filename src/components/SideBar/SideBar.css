@@ -15,10 +15,11 @@
 }
 
 .nav-menu {
-  background-color: #709f9fd4;
+  z-index: 1;
+  background-color: #5a5e5ed4;
   backdrop-filter: blur(12px);
 
-  width: 250px;
+  width: 13rem;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -57,7 +58,8 @@
 
 .nav-text a:hover {
   /* background-color: #5a5d6dee; */
-  background-color: #4eabab;
+  background-color: #575b5bd4;
+
 
 
 }

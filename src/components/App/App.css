@@ -27,6 +27,10 @@ Container
 Button
 -------------------------------------------------------------------------------- */
 
+.continue--guest {
+  float: right;
+}
+
 .guestbtn {
   display: inline-block;
   padding: 10px 20px;
@@ -107,8 +111,8 @@ Button
 
 .btn_asLink:hover {
   background-color: transparent;
-  border-color: #008183;
-  color: #008183;
+  border-color: #304FFE;
+  color: #304FFE;
 }
 
 /* --------------------------------------------------------------------------------
@@ -146,32 +150,36 @@ input {
   margin-bottom: 10px;
 }
 
-/* Report */
+/* --------- Report --------- */
 
 .report {
   margin: auto;
   width: 70%;
   background-color: #DEDEDE;
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  font-size: 1rem;
+  padding-top: 1em;
+  padding-bottom: 3em;
 }
 
-.report-form {
-  margin-top: 0;
-  margin-left: 7rem;
-}
 
 .report-content {
-  margin-left: 7rem;
-  margin-right: 7rem;
+  font-size: 1rem;
+  margin-left: 2em;
+  margin-right: 2em;
 }
 
 .report-input {
   min-width: 100%;
   max-width: 100%;
   margin-left: 0;
+  box-sizing: border-box;
 }
 
 .report-button {
   float: right;
+}
+
+textarea {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 0.5rem;
 }
