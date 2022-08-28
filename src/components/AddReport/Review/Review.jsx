@@ -84,32 +84,34 @@ function Review() {
   const next = () => {
       // create new object
       let report = {
-          anonymous: start.anonymous,
-          public: start.public,
-          verification: start.verification,
-          handle_info: start.handle_info,
-          officer_first: officerDetails.officer_first,
-          officer_last: officerDetails.officer_last,
-          officer_rank: officerDetails.officer_rank,
-          officer_badge: officerDetails.officer_badge,
-          officer_department: officerDetails.officer_department,
-          officer_anythingelse: officerDetails.officer_anythingelse,
-          interaction_date: interactionDetails.interaction_date,
-          interaction_time: interactionDetails.interaction_time,
-          interaction_location: interactionDetails.interaction_location,
-          reference_number: interactionDetails.reference_number,
-          interaction_summary: interactionSummary.interaction_summary,
-          report_outcomes: outcomes.report_outcomes,
-          reporter_first: start.reporter_first,
-          reporter_last: start.reporter_last,
-          reporter_email: start.reporter_email,
-          reporter_phone: start.reporter_phone,
+          anonymous: formData.anonymous,
+          public: formData.publicReport,
+          verification: formData.verification,
+          handle_info: formData.understand,
+          officer_first: formData.officerFirst,
+          officer_last: formData.officerLast,
+          officer_rank: formData.officerRank,
+          officer_badge: formData.officerBadge,
+          officer_department: formData.officerDept,
+          officer_anythingelse: formData.officerAnythingelse,
+          interaction_date: formData.interactionDate,
+          interaction_time: formData.interactionTime,
+          interaction_location: formData.interactionLocation,
+          reference_number: formData.referenceNumber,
+          interaction_summary: formData.interactionSummary,
+          report_outcomes: formData.outcomes,
+          reporter_first: formData.first,
+          reporter_last: formData.last,
+          reporter_email: formData.email,
+          reporter_phone: formData.phone,
       };
       console.log(report);
+      console.log('formData:', formData);
       // send dispatch
       dispatch({
           type: "REVIEW_SAGA",
           payload: report,
+          // payload: formData,
       });
       // history.push to next page
       history.push("/submitted");
