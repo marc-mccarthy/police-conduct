@@ -45,18 +45,18 @@ function Start() {
   }
 
   return (
-    <div className='report'>
+      <div className='report'>
 
-      <div className='report-content'>
+        <div className='report-content'>
 
-        <StartContent formData={formData} setFormData={setFormData} />
+          <StartContent formData={formData} setFormData={setFormData} />
 
-        <Button className='report-button' onClick={next}>NEXT</Button>
+          <Button className='report-button' onClick={next}>NEXT</Button>
 
+        </div>
+        
       </div>
-
-    </div>
-  );
+    );
 }
 
 export default Start;
