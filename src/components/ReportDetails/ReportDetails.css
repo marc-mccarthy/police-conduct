@@ -1,7 +1,20 @@
 .ReportItem {
-    margin: auto;
-    padding: 15px;
     font-size: large;
+    width: 20rem;
+    margin: 1rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 22rem;
+    border: 1px solid gray;
+    box-shadow: 5px 5px #ccc;
+    transition: 0.3s;
+  }
+
+  .ReportItem:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.9);
   }
 
   .details_page {
