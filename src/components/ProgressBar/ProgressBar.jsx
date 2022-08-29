@@ -45,28 +45,25 @@ function ProgressBar(props) {
   const currentPage = location.pathname;
 
   const Other = styled(Paper)(({theme})=>({
-    backgroundColor: '#fff',
+    backgroundColor: '#000000',
     ...theme.typography.body2,
-    padding: '5px',
     textAlign: 'center',
-    color: '#000000',
-    fontSize: '14px',
+    color: '#FFFFFF',
+    fontSize: '1rem',
+    fontWeight: 'bold',
   }));
 
   const Current = styled(Paper)(({theme})=>({
-    backgroundColor: '#0000FF',
+    backgroundColor: '#000000',
     ...theme.typography.body2,
-    padding: '10px',
     textAlign: 'center',
-    color: '#fff',
-    fontSize: '20px',
-    letterSpacing: '1.5px',
+    color: '#5FD855',
+    fontSize: '1rem',
     fontWeight: 'bold',
-    border: '2px solid white',
   }));
 
   return (
-    <Grid container spacing={3} justifyContent='space-evenly' direction='row' alignItems='center' columns={7}>
+    <Grid container spacing={1} justifyContent='space-evenly' direction='row' alignItems='center' columns={7} >
         {startToFinish.map(eachPage => {
           if(eachPage.path === currentPage){
             return (

@@ -33,7 +33,7 @@ function Nav() {
     <div className="nav">
       <SideBar className='SidebarNav' />
         {show ?
-          <div>
+          <div className="progress-bar">
           <ProgressBar />
           </div>
         :
