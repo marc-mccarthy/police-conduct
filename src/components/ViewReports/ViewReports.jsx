@@ -41,7 +41,13 @@ function ViewReports() {
                 <div className="ReportItem" key={eachReport.id}>
                   <h3>Report # {eachReport.id}</h3>
                   <p>{eachReport.reporter_first}</p>
+                  {
+                    eachReport.interaction_date === null ?
+                    <></>
+                    :
                   <p>Date: {eachReport.interaction_date.substring(0, 10)}</p>
+                  }
+                  {/* <p>Date: {eachReport.interaction_date.substring(0, 10)}</p> */}
                   <p>{eachReport.interaction_summary.substring(0, 30)}...</p>
                   <Button
                     variant="contained"

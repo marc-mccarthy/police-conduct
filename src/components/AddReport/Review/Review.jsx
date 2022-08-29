@@ -41,8 +41,8 @@ function Review() {
     officerBadge: '',
     officerDept: '',
     officerAnything: '',
-    interactionDate: '',
-    interactionTime: '',
+    interactionDate: null,
+    interactionTime: null,
     interactionLocation: '',
     referenceNumber: '',
     interactionSummary: '',
@@ -77,8 +77,9 @@ function Review() {
     }
   }, [start, officerDetails, interactionDetails, interactionSummary, outcomes])
 
-  const back = () => {
-    history.push('/outcomes')
+  const cancel = () => {
+    dispatch({type: 'RESET_FORM'});
+    history.push('/home')
   }
 
   const next = () => {
@@ -104,6 +105,12 @@ function Review() {
           reporter_last: formData.last,
           reporter_email: formData.email,
           reporter_phone: formData.phone,
+      };
+      if(report.interaction_time === "") {
+        report.interaction_time = null;
+      };
+      if(report.interaction_date === "") {
+        report.interaction_date = null;
       };
       console.log(report);
       console.log('formData:', formData);
@@ -132,7 +139,7 @@ function Review() {
 
         <OutcomesContent formData={formData} setFormData={setFormData} />
 
-        <Button onClick={back}>Cancel</Button>
+        <Button onClick={cancel} color="error">Cancel</Button>
         {/* TODO Change this to go back to home/refresh everything */}
         <Button className='report-button' onClick={next} color="secondary">SUBMIT</Button>
 

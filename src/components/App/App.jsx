@@ -65,8 +65,13 @@ function App() {
       MuiButton: {
         defaultProps: {
           variant: 'contained',
-          size: 'small'
+          size: 'small',
         },
+        styleOverrides: {
+          root: {
+            marginTop: '1rem'
+          }
+        }
       },
     },
   })
