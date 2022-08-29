@@ -42,3 +42,8 @@
 .navLink:hover {
   background-color: #709f9fd4;
 }
+
+.progress-bar {
+  margin: auto;
+  width: 60%;
+}
