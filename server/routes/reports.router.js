@@ -24,6 +24,7 @@ router.get('/fetchReports', (req, res) => {
  */
 router.post('/addReport', (req, res) => {
 	// console.log our data
+  console.log(req.body);
   if (req.user) {
     // post query adding our form data for report if it's an logged in user
     pool
