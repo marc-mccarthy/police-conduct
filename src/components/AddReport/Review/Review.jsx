@@ -77,8 +77,9 @@ function Review() {
     }
   }, [start, officerDetails, interactionDetails, interactionSummary, outcomes])
 
-  const back = () => {
-    history.push('/outcomes')
+  const cancel = () => {
+    dispatch({type: 'RESET_FORM'});
+    history.push('/home')
   }
 
   const next = () => {
@@ -132,7 +133,7 @@ function Review() {
 
         <OutcomesContent formData={formData} setFormData={setFormData} />
 
-        <Button onClick={back}>Cancel</Button>
+        <Button onClick={cancel} color="error">Cancel</Button>
         {/* TODO Change this to go back to home/refresh everything */}
         <Button className='report-button' onClick={next} color="secondary">SUBMIT</Button>
 
