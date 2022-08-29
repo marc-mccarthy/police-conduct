@@ -27,10 +27,6 @@ function ReportDetails() {
     }
   };
 
-
-
-
-
   const editDelete = () => {
     if (user.id === reports[0].userID) {
       return (
@@ -61,7 +57,13 @@ function ReportDetails() {
           <p>Rank: {reports[0].officer_rank}</p>
           <p>Badge # {reports[0].officer_badge}</p>
           <p>Department: {reports[0].officer_department}</p>
+          {
+            reports[0].interaction_date === null ?
+            <p>Date: </p>
+            :
           <p>Date: {reports[0].interaction_date.substring(0, 10)}</p>
+          }
+          {/* <p>Date: {reports[0].interaction_date.substring(0, 10)}</p> */}
           <p>Time: {reports[0].interaction_time}</p>
           <p>Location: {reports[0].interaction_location}</p>
           <p>Ref # : {reports[0].reference_number}</p>

@@ -41,8 +41,8 @@ function Review() {
     officerBadge: '',
     officerDept: '',
     officerAnything: '',
-    interactionDate: '',
-    interactionTime: '',
+    interactionDate: null,
+    interactionTime: null,
     interactionLocation: '',
     referenceNumber: '',
     interactionSummary: '',
@@ -105,6 +105,12 @@ function Review() {
           reporter_last: formData.last,
           reporter_email: formData.email,
           reporter_phone: formData.phone,
+      };
+      if(report.interaction_time === "") {
+        report.interaction_time = null;
+      };
+      if(report.interaction_date === "") {
+        report.interaction_date = null;
       };
       console.log(report);
       console.log('formData:', formData);

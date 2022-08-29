@@ -14,8 +14,8 @@ function InteractionDetails() {
   const history = useHistory();
 
   const [formData, setFormData] = useState({
-    interactionDate: '',
-    interactionTime: '',
+    interactionDate: null,
+    interactionTime: null,
     interactionLocation: '',
     referenceNumber: '',
   })

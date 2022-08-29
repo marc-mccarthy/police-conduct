@@ -7,23 +7,23 @@ const router = express.Router();
  * GET route template
  */
 router.get('/fetchReports', (req, res) => {
-	// GET route code here
-	pool
-		.query(`SELECT * FROM "report" WHERE public = true;`)
-		.then(result => {
-			res.send(result.rows);
-		})
-		.catch(error => {
-			console.log('Error retrieving failed', error);
-			res.sendStatus(500);
-		});
+  // GET route code here
+  pool
+    .query(`SELECT * FROM "report" WHERE public = true;`)
+    .then(result => {
+      res.send(result.rows);
+    })
+    .catch(error => {
+      console.log('Error retrieving failed', error);
+      res.sendStatus(500);
+    });
 });
 
 /**
  * POST route template
  */
 router.post('/addReport', (req, res) => {
-	// console.log our data
+  // console.log our data
   console.log(req.body);
   if (req.user) {
     // post query adding our form data for report if it's an logged in user
@@ -55,16 +55,16 @@ router.post('/addReport', (req, res) => {
         ]
       )
       .then((result) => {
-      console.log('New Report Id:', result.rows[0].id);
-      const newID = result.rows[0].id;
-      res.send(newID.toString());
-      // res.sendStatus(201);
+        console.log('New Report Id:', result.rows[0].id);
+        const newID = result.rows[0].id;
+        res.send(newID.toString());
+        // res.sendStatus(201);
       })
       .catch(err => {
         console.log('Form submission failed: ', err);
         res.sendStatus(500);
       });
-    }
+  }
   // post query adding our form data for report if it's an undefined guest id
   if (req.user === undefined) {
     pool
@@ -95,8 +95,9 @@ router.post('/addReport', (req, res) => {
       )
       .then((result) => {
         console.log('New Report Id:', result.rows[0].id);
-        res.sendStatus(201);
-        })
+        const newID = result.rows[0].id;
+        res.send(newID.toString());
+      })
       .catch(err => {
         console.log('Form submission failed: ', err);
         res.sendStatus(500);
