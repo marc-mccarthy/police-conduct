@@ -1,4 +1,4 @@
-.ProfileReportList {
+.ViewReportList {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -6,7 +6,7 @@
   margin-top: 4%;
 }
 
-.ProfileReportItem {
+.ViewReportItem {
   font-size: large;
   width: 20rem;
   margin: 1rem;
@@ -21,6 +21,6 @@
   transition: 0.3s;
 }
 
-.ProfileReportItem:hover {
+.ViewReportItem:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.9);
 }

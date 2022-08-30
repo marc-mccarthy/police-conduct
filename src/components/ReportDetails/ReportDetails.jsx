@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
-import { Box, Button } from '@mui/material';
+import { Stack, Button } from '@mui/material';
 import LoadingBar from '../LoadingBar/LoadingBar';
 import './ReportDetails.css';
 
@@ -30,50 +30,80 @@ function ReportDetails() {
   const editDelete = () => {
     if (user.id === reports[0].userID) {
       return (
-        <div>
-          <Button color="error" onClick={delete_Report}>
-            Delete
-          </Button>
-          <Button onClick={console.log('hello')}>
-            Edit
-          </Button>
-        </div>
+          <Stack direction="row" spacing={1}>
+            <Button color="error" onClick={delete_Report}>
+              Delete
+            </Button>
+            <Button onClick={console.log("hello")}>
+              Edit
+            </Button>
+          </Stack>
       );
     }
   };
 // end of editDelete
   return (
-    <div className="details_page">
-      {reports.length === 0 ? (
-        <div>
-          <h1 className="spinner"></h1>
-        </div>
-      ) : (
-        <div className="ReportItem" key={reports.id}>
-          <h3>Report # {reports[0].id}</h3>
-          <p>
-            Officer {reports[0].officer_first} {reports[0].officer_last}
-          </p>
-          <p>Rank: {reports[0].officer_rank}</p>
-          <p>Badge # {reports[0].officer_badge}</p>
-          <p>Department: {reports[0].officer_department}</p>
-          {
-            reports[0].interaction_date === null ?
-            <p>Date: </p>
-            :
-          <p>Date: {reports[0].interaction_date.substring(0, 10)}</p>
-          }
-          {/* <p>Date: {reports[0].interaction_date.substring(0, 10)}</p> */}
-          <p>Time: {reports[0].interaction_time}</p>
-          <p>Location: {reports[0].interaction_location}</p>
-          <p>Ref # : {reports[0].reference_number}</p>
-          <p>Report Summary: {reports[0].interaction_summary}</p>
-          <p>Desired Outcomes: {reports[0].report_outcomes}</p>
-          <div>{editDelete()}</div>
-
-        </div>
-      )}
-    </div>
+      <div className="ReportDetails">
+          {reports.length === 0 ? (
+              <div>
+                  <h1 className="spinner"></h1>
+              </div>
+          ) : (
+              <div className="ReportItem">
+                  <div key={reports.id}>
+                      <h3>Report #{reports[0].id}</h3>
+                      <p>
+                          <b>Officer: </b>
+                          {reports[0].officer_first} {reports[0].officer_last}
+                      </p>
+                      <p>
+                          <b>Rank: </b>
+                          {reports[0].officer_rank}
+                      </p>
+                      <p>
+                          <b>Badge #: </b>
+                          {reports[0].officer_badge}
+                      </p>
+                      <p>
+                          <b>Department: </b>
+                          {reports[0].officer_department}
+                      </p>
+                      {reports[0].interaction_date === null ? (
+                          <p>Date: </p>
+                      ) : (
+                          <p>
+                              <b>Date: </b>
+                              {reports[0].interaction_date.substring(0, 10)}
+                          </p>
+                      )}
+                      {/* <p>Date: {reports[0].interaction_date.substring(0, 10)}</p> */}
+                      <p>
+                          <b>Time: </b>
+                          {reports[0].interaction_time}
+                      </p>
+                      <p>
+                          <b>Location: </b>
+                          {reports[0].interaction_location}
+                      </p>
+                      <p>
+                          <b>Ref. #: </b>
+                          {reports[0].reference_number}
+                      </p>
+                      <p>
+                          <b>Report Summary: </b>
+                          {reports[0].interaction_summary}
+                      </p>
+                      <p>
+                          <b>Desired Outcomes: </b>
+                          {reports[0].report_outcomes}
+                      </p>
+                  </div>
+                  <div className="ButtonsContainer">
+                      <div>{editDelete()}</div>
+                  </div>
+              </div>
+          )}
+      </div>
   );
 }
 

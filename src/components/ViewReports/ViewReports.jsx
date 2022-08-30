@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { Box, Button } from '@mui/material';
 import LoadingBar from '../LoadingBar/LoadingBar';
+import './ViewReports.css';
 
 function ViewReports() {
   const reports = useSelector((store) => store.reports);
@@ -34,11 +35,10 @@ function ViewReports() {
       ) : (
         <div>
           <h2>All Reports :</h2>
-
-          <div className="ProfileReportList">
+          <div className="ViewReportList">
             {reports.map((eachReport) => {
               return (
-                <div className="ReportItem" key={eachReport.id}>
+                <div className="ViewReportItem" key={eachReport.id}>
                   <h3>Report # {eachReport.id}</h3>
                   <p>{eachReport.reporter_first}</p>
                   {
