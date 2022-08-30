@@ -14,6 +14,7 @@ function ViewReports() {
   useEffect(() => {
     dispatch({ type: 'FETCH_ALL_REPORTS' });
   }, []);
+  
   const details = (id) => {
     history.push(`/reports/${id}`);
   };
