@@ -12,12 +12,8 @@ function LogOutRoute() {
   const history = useHistory();
 
   useEffect(() => {
-    if (user.id){
     dispatch({ type: 'LOGOUT' })
     history.push('/profile');
-    }else{
-      history.push('/');
-    }
   }, [])
   return (
     <div className="container">

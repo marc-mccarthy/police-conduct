@@ -187,6 +187,15 @@ function App() {
               <LandingPage />
             </Route>
 
+            <Route
+              // logged in shows UserPage else shows LoginPage
+              exact
+              path="/logout"
+            >
+              <LogOutRoute />
+
+            </Route>
+
             <ProtectedRoute
               // logged in shows InfoPage else shows LoginPage
               exact
@@ -212,12 +221,12 @@ function App() {
             <OfficerDetails />
           </ProtectedRoute> */}
 
-            <ProtectedRoute
+            {/* <ProtectedRoute
               exact
               path="/logout"
             >
               <LogOutRoute />
-            </ProtectedRoute>
+            </ProtectedRoute> */}
 
             <Route
               exact
