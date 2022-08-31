@@ -106,7 +106,7 @@ function Review() {
         officerBadge: report[0].officer_badge,
         officerDept: report[0].officer_department,
         officerAnything: report[0].officer_anythingelse,
-        interactionDate: report[0].interaction_date,
+        interactionDate: report[0].interaction_date.split('T')[0],
         interactionTime: report[0].interaction_time,
         interactionLocation: report[0].interaction_location,
         referenceNumber: report[0].reference_number,
