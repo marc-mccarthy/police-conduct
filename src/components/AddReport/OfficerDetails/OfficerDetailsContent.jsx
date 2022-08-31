@@ -72,23 +72,23 @@ function OfficerDetailsContent({ formData, setFormData }) {
       <h2>Officer Details</h2>
 
       <p>First name:</p>
-      <input className='report-input' onChange={handleOfficerFirst} defaultValue={officerDetails.officer_first} />
+      <input className='report-input' onChange={handleOfficerFirst} defaultValue={formData.officerFirst} />
       {/* this works now as well */}
 
       <p>Last name:</p>
-      <input className='report-input' onChange={handleOfficerLast} defaultValue={officerDetails.officer_last} />
+      <input className='report-input' onChange={handleOfficerLast} defaultValue={formData.officerLast} />
 
       <p>Rank:</p>
-      <input className='report-input' onChange={handleOfficerRank} defaultValue={officerDetails.officer_rank} />
+      <input className='report-input' onChange={handleOfficerRank} defaultValue={formData.officerRank} />
 
       <p>Badge Number:</p>
-      <input className='report-input' onChange={handleOfficerBadge} defaultValue={officerDetails.officer_badge} />
+      <input className='report-input' onChange={handleOfficerBadge} defaultValue={formData.officerBadge} />
 
       <p>Department:</p>
-      <input className='report-input' onChange={handleOfficerDept} defaultValue={officerDetails.officer_department} />
+      <input className='report-input' onChange={handleOfficerDept} defaultValue={formData.officerDept} />
 
       <p>Is there anything else you can tell us to help identify this officer</p>
-      <input className='report-input' onChange={handleOfficerAnything} defaultValue={officerDetails.officer_anythingelse} />
+      <input className='report-input' onChange={handleOfficerAnything} defaultValue={formData.officerAnything} />
 
     </>
   );

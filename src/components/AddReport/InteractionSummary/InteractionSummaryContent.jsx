@@ -47,7 +47,7 @@ function InteractionSummaryContent({ formData, setFormData }) {
       {/* to style the disabled input https://stackoverflow.com/questions/62279125/material-ui-how-to-change-the-colour-of-a-disabled-textfield */}
 
       <p>Summary of interaction:</p>
-      <textarea className='report-input' rows="20" onChange={handleSummary} defaultValue={interactionSummary.interaction_summary}/>
+      <textarea className='report-input' rows="20" onChange={handleSummary} defaultValue={formData.interactionSummary}/>
 
     </>
   );

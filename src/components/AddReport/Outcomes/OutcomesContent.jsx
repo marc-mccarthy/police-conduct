@@ -32,7 +32,7 @@ function OutcomesContent({ formData, setFormData }) {
 
       <p>What, if anything, would you like to happen as a result of your report?</p>
       <p>(We cannot guarantee that your desired outcome will happen.)</p>
-      <textarea className='report-input' rows="20" onChange={handleOutcomes} defaultValue={outcomes.report_outcomes}/>
+      <textarea className='report-input' rows="20" onChange={handleOutcomes} defaultValue={formData.outcomes}/>
 
     </>
   );
