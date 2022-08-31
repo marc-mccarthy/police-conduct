@@ -30,6 +30,9 @@ function ReportDetails() {
     }
   };
 
+  const PrivatePublicToggle = async () => {
+    dispatch({ type: "", payload: id });
+  }
   return (
     <div className="ReportDetails">
       {reports.length === 0 ? (

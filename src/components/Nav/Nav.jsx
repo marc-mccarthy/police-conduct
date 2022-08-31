@@ -32,14 +32,20 @@ function Nav() {
   return (
     <div className="nav">
       <SideBar className='SidebarNav' />
-        {show ?
+      {
+        show ?
           <div className="progress-bar">
           <ProgressBar />
           </div>
         :
+        user.access === 1 && !show ?
+          <div className='AdminContainer'>
+            <h3 className='AdminText'>Super Admin</h3>
+          </div>
+        :
           <></>
-        }
-      </div>
+      }
+    </div>
   );
 }
 
