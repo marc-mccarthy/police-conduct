@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
-import { Stack, Button } from '@mui/material';
+import { Box, Grid, Stack, Button } from '@mui/material';
 import LoadingBar from '../LoadingBar/LoadingBar';
 import './ReportDetails.css';
 
@@ -27,21 +27,6 @@ function ReportDetails() {
     }
   };
 
-  const editDelete = () => {
-    if (user.id === reports[0].userID) {
-      return (
-          <Stack direction="row" spacing={1}>
-            <Button color="error" onClick={delete_Report}>
-              Delete
-            </Button>
-            <Button onClick={console.log("hello")}>
-              Edit
-            </Button>
-          </Stack>
-      );
-    }
-  };
-// end of editDelete
   return (
       <div className="ReportDetails">
           {reports.length === 0 ? (
@@ -98,9 +83,21 @@ function ReportDetails() {
                           {reports[0].report_outcomes}
                       </p>
                   </div>
-                  <div className="ButtonsContainer">
-                      <div>{editDelete()}</div>
-                  </div>
+                  <Grid
+                      container
+                      direction="row"
+                      justifyContent="center"
+                      alignItems="center"
+                  >
+                      <Box mr={1}>
+                          <Button color="error" onClick={delete_Report}>
+                              Delete
+                          </Button>
+                      </Box>
+                      <Box ml={1}>
+                          <Button onClick={console.log("hello")}>Edit</Button>
+                      </Box>
+                  </Grid>
               </div>
           )}
       </div>

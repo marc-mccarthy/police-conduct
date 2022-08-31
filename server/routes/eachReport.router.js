@@ -8,7 +8,6 @@ const router = express.Router();
  */
  router.get("/:id", (req, res) => {
     let queryString = `SELECT * FROM "report" WHERE report.id = $1;`;
-    console.log(req.params.id)
     let values = [req.params.id];
     pool
       .query(queryString, values)
