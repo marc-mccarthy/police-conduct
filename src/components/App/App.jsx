@@ -100,7 +100,7 @@ function App() {
                 <Redirect to="/profile" />
                 :
                 // Otherwise, show the Profile page
-                <guestProfile />
+                <GuestProfile />
               }
             </Route>
 
