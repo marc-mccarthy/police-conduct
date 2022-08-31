@@ -120,7 +120,7 @@ function Review() {
 
   const cancel = () => {
     dispatch({ type: 'RESET_FORM' });
-    if(location.pathname === '/review') {
+    if (location.pathname === '/review') {
       history.push("/home");
     } else {
       history.push(`/reports/${id}`)
@@ -150,6 +150,7 @@ function Review() {
       reporter_last: formData.last,
       reporter_email: formData.email,
       reporter_phone: formData.phone,
+      id: id,
     };
     if (report.interaction_time === "") {
       report.interaction_time = null;
@@ -160,13 +161,14 @@ function Review() {
     console.log(report);
     console.log('formData:', formData);
     // send dispatch
-    dispatch({
-      type: "REVIEW_SAGA",
-      payload: report,
-      // payload: formData,
-    });
-    // history.push to next page
+    
     if(location.pathname === '/review') {
+      dispatch({ type: "REVIEW_SAGA", payload: report});
+    } else {
+      dispatch({ type: "EDIT_REPORT_SAGA", payload: report});
+    }
+    // history.push to next page
+    if (location.pathname === '/review') {
       history.push("/submitted");
     } else {
       history.push(`/reports/${id}`)
@@ -188,9 +190,20 @@ function Review() {
 
         <OutcomesContent formData={formData} setFormData={setFormData} />
 
-        <Button onClick={cancel} color="error">Cancel</Button>
-        {/* TODO Change this to go back to home/refresh everything */}
-        <Button className='report-button' onClick={next} color="secondary">SUBMIT</Button>
+        {
+          location.pathname === '/review' ?
+            <div>
+              <Button onClick={cancel} color="error">Cancel</Button>
+              <Button className='report-button' onClick={next} color="secondary">SUBMIT</Button>
+            </div>
+            :
+            <div>
+              <Button onClick={cancel} color="error">Cancel</Button>
+              <Button className='report-button' onClick={next} color="secondary">SAVE</Button>
+            </div>
+        }
+
+
 
       </div>
 
