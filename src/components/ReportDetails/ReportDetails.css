@@ -1,27 +1,37 @@
+.ReportDetails {
+  margin: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
 .ReportItem {
-    font-size: large;
-    width: 20rem;
-    margin: 1rem;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 22rem;
-    border: 1px solid gray;
-    box-shadow: 5px 5px #ccc;
-    transition: 0.3s;
-  }
+  height: auto;
+  padding: 2rem;
+  border: 1px solid gray;
+  box-shadow: 5px 5px #ccc;
+  transition: 0.3s;
+}
 
-  .ReportItem:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.9);
-  }
+.ReportItem:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.9);
+}
 
-  .details_page {
-    display: flex;
-    right: 0;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    margin: auto;
+@media (min-width: 650px) {
+  .ReportItem {
+    width: 30rem;
   }
+}
+
+.ButtonsContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.EditDeleteButtons {
+  margin: 1rem;
+}
+
+
