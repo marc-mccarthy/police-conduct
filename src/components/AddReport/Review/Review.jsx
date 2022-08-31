@@ -120,7 +120,11 @@ function Review() {
 
   const cancel = () => {
     dispatch({ type: 'RESET_FORM' });
-    history.push('/home')
+    if(location.pathname === '/review') {
+      history.push("/home");
+    } else {
+      history.push(`/reports/${id}`)
+    }
   }
 
   const next = () => {
@@ -162,7 +166,11 @@ function Review() {
       // payload: formData,
     });
     // history.push to next page
-    history.push("/submitted");
+    if(location.pathname === '/review') {
+      history.push("/submitted");
+    } else {
+      history.push(`/reports/${id}`)
+    }
   };
 
   return (
