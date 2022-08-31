@@ -99,7 +99,14 @@ function App() {
               exact
               path="/guestProfile"
             >
-              <GuestProfile />
+              {user.id ?
+                // If the user is logged in,
+                // redirect them to the /profile page
+                <Redirect to="/profile" />
+                :
+                // Otherwise, show the Profile page
+                <GuestProfile />
+              }
             </Route>
 
             <Route
