@@ -4,18 +4,20 @@ import { useSelector } from 'react-redux';
 import { Button } from '@mui/material';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import { useHistory, useParams } from 'react-router-dom';
 
 import StartContent from '../Start/StartContent';
 import OfficerDetailsContent from '../OfficerDetails/OfficerDetailsContent';
 import InteractionDetailsContent from '../InteractionDetails/InteractionDetailsContent';
 import InteractionSummaryContent from '../InteractionSummary/InteractionSummaryContent';
 import OutcomesContent from '../Outcomes/OutcomesContent';
-import { useHistory } from 'react-router-dom';
 
 function Review() {
 
   const dispatch = useDispatch();
   const history = useHistory();
+
+  let { id } = useParams();
 
   // form reducer values from the store to be used for review
   const start = useSelector(store => store.startReducer);
@@ -23,8 +25,6 @@ function Review() {
   const interactionDetails = useSelector(store => store.interactionDetailsReducer);
   const interactionSummary = useSelector(store => store.interactionSummaryReducer);
   const outcomes = useSelector(store => store.outcomesReducer);
-
-  // TODO MAKE CHECKBOXES WITH USEEFFECT LIKE IN START? not showing correctly checked or not/needs to be controlled
 
   const [formData, setFormData] = useState({
     anonymous: false,
@@ -48,6 +48,10 @@ function Review() {
     interactionSummary: '',
     outcomes: '',
   })
+
+  useEffect(() => {
+    dispatch({ type: "EACH_USER_REPORT", payload: id });
+  }, []);
 
   useEffect(() => {
     if (Object.keys(start).length > 0 && Object.keys(officerDetails).length > 0 && Object.keys(interactionDetails).length > 0 && Object.keys(interactionSummary).length > 0 && Object.keys(outcomes).length > 0) {

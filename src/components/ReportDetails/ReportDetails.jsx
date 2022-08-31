@@ -30,6 +30,10 @@ function ReportDetails() {
     }
   };
 
+  const edit_Report = () => {
+    history.push(`/edit/${id}`)
+  }
+
   return (
     <div className="ReportDetails">
       {reports.length === 0 ? (
@@ -98,7 +102,7 @@ function ReportDetails() {
               </Button>
             </Box>
             <Box ml={1}>
-              <Button onClick={console.log("hello")}>Edit</Button>
+              <Button onClick={edit_Report}>Edit</Button>
             </Box>
           </Grid>
         </div>
