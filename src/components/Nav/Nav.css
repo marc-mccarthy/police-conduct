@@ -47,3 +47,22 @@
   margin: auto;
   width: 60%;
 }
+
+.AdminContainer {
+  background-color: transparent;
+  margin: auto;
+  overflow: hidden;
+}
+
+.AdminText {
+  animation: color-change 10s infinite;
+  color: white;
+  letter-spacing: 2px;
+}
+
+@keyframes color-change {
+  90% {color: white}
+  10% {color: white}
+  40% {color: red}
+  60% {color: blue}
+}

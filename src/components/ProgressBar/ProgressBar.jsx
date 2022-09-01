@@ -64,16 +64,16 @@ function ProgressBar(props) {
 
   return (
     <Grid container spacing={1} justifyContent='space-evenly' direction='row' alignItems='center' columns={7} >
-        {startToFinish.map(eachPage => {
+        {startToFinish.map((eachPage, index) => {
           if(eachPage.path === currentPage){
             return (
-              <Grid item xs='auto'>
+              <Grid item xs='auto' key={index}>
                 <Current>{eachPage.page}</Current>
               </Grid> 
             )
           }else {
             return (
-              <Grid item xs='auto'>
+              <Grid item xs='auto' key={index}>
                 <Other>{eachPage.page}</Other>
               </Grid> 
             )

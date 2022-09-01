@@ -6,10 +6,13 @@ import { SidebarData } from './SidebarData';
 import './SideBar.css';
 import { IconContext } from 'react-icons';
 import LogOutButton from '../LogOutButton/LogOutButton';
+import { useSelector } from 'react-redux';
 
 function SideBar() {
+  const user = useSelector((store) => store.user);
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
+
   return (
     <>
       <IconContext.Provider value={{ color: '#ffff' }}>
@@ -25,16 +28,30 @@ function SideBar() {
                 <FaIcons.FaAngleDoubleLeft />
               </Link>
             </li>
-            {SidebarData.map((item, index) => {
-              return (
-                <li key={index} className={item.cName}>
-                  <Link to={item.path}>
-                    {item.icon}
-                    <span>{item.title}</span>
-                  </Link>
-                </li>
-              );
-            })}
+            {user.id ?
+                SidebarData.map((item, index) => {
+                  return (
+                    <li key={index} className={item.cName}>
+                      <Link to={item.path}>
+                        {item.icon}
+                        <span>{item.title}</span>
+                      </Link>
+                    </li>
+                )})
+              :
+                SidebarData.map((item, index) => {
+                  if(item.userReq===false){
+                    return (
+                      <li key={index} className={item.cName}>
+                        <Link to={item.path}>
+                          {item.icon}
+                          <span>{item.title}</span>
+                        </Link>
+                      </li>
+                    )
+                  }
+                })
+            }
           </ul>
         </nav>
       </IconContext.Provider>

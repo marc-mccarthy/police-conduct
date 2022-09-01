@@ -79,7 +79,6 @@ function ReportDetails() {
       )
     }
   };
-
   return (
     <div className="ReportDetails">
       {reports.length === 0 ? (
