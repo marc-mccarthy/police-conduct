@@ -7,6 +7,7 @@ import LoadingBar from '../LoadingBar/LoadingBar';
 import './Profile.css';
 
 function Profile() {
+  const allReports = useSelector((store) => store.allUserReport);
   const reports = useSelector((store) => store.reports);
   const user = useSelector((store) => store.user);
   const history = useHistory();
@@ -15,6 +16,8 @@ function Profile() {
 
   useEffect(() => {
     dispatch({ type: 'FETCH_ALL_REPORTS' });
+    dispatch({ type: 'ALL_USER_REPORTS', payload: user.id });
+
   }, []);
   const details = (id) => {
     history.push(`/reports/${id}`);
@@ -22,7 +25,7 @@ function Profile() {
 
   return (
     <div className="container">
-      {reports.length == 0 ? (
+      {allReports.length == 0 ? (
         <Box mt={25} display="flex" justifyContent="center" alignItems="center">
           <h1>{user.username} Has No Reports</h1>
         </Box>
@@ -30,7 +33,7 @@ function Profile() {
         <div>
           <h2>{user.username}'s Reports :</h2>
           <div className="ProfileReportList">
-            {reports.map((eachReport) => {
+            {allReports.map((eachReport) => {
               return (
                 eachReport.userID == user.id && (
                   <div className="ProfileReportItem" key={eachReport.id}>

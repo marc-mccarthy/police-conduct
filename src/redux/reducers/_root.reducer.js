@@ -9,6 +9,7 @@ import outcomesReducer from './outcomes.reducer';
 import reports from './reports.reducer';
 import eachReport from './eachReport.reducer';
 import reportID from './reportID.reducer';
+import allUserReport from './allUserReport.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -27,6 +28,7 @@ const rootReducer = combineReducers({
   reports, // TYPE: SET_REPORTS
   eachReport, // TYPE: EACH_REPORT
   reportID, // TYPE: SHOW_ID
+  allUserReport, // TYPE: ALL_REPORTS
 });
 
 export default rootReducer;
