@@ -14,6 +14,8 @@ import OutcomesContent from '../Outcomes/OutcomesContent';
 
 function Review() {
 
+  //REVIEW IS ALSO THE EDIT PAGE
+
   const dispatch = useDispatch();
   const history = useHistory();
   const location = useLocation();
@@ -89,7 +91,7 @@ function Review() {
           outcomes: outcomes.report_outcomes,
         })
       }
-    } else {
+    } else if(report.length > 0) {
       setFormData({
         // ...formData,
         anonymous: report[0].anonymous,
@@ -161,11 +163,11 @@ function Review() {
     console.log(report);
     console.log('formData:', formData);
     // send dispatch
-    
-    if(location.pathname === '/review') {
-      dispatch({ type: "REVIEW_SAGA", payload: report});
+
+    if (location.pathname === '/review') {
+      dispatch({ type: "REVIEW_SAGA", payload: report });
     } else {
-      dispatch({ type: "EDIT_REPORT_SAGA", payload: report});
+      dispatch({ type: "EDIT_REPORT_SAGA", payload: report });
     }
     // history.push to next page
     if (location.pathname === '/review') {
@@ -176,37 +178,42 @@ function Review() {
   };
 
   return (
-    <div className='report'>
+    <div>
+      {
+        report.length > 0 ?
+          <div className='report'>
+            <div className='report-content'>
 
-      <div className='report-content'>
+              <StartContent formData={formData} setFormData={setFormData} />
 
-        <StartContent formData={formData} setFormData={setFormData} />
+              <OfficerDetailsContent formData={formData} setFormData={setFormData} />
 
-        <OfficerDetailsContent formData={formData} setFormData={setFormData} />
+              <InteractionDetailsContent formData={formData} setFormData={setFormData} />
 
-        <InteractionDetailsContent formData={formData} setFormData={setFormData} />
+              <InteractionSummaryContent formData={formData} setFormData={setFormData} />
 
-        <InteractionSummaryContent formData={formData} setFormData={setFormData} />
+              <OutcomesContent formData={formData} setFormData={setFormData} />
 
-        <OutcomesContent formData={formData} setFormData={setFormData} />
+              {
+                location.pathname === '/review' ?
+                  <div>
+                    <Button onClick={cancel} color="error">Cancel</Button>
+                    <Button className='report-button' onClick={next} color="secondary">SUBMIT</Button>
+                  </div>
+                  :
+                  <div>
+                    <Button onClick={cancel} color="error">Cancel</Button>
+                    <Button className='report-button' onClick={next} color="secondary">SAVE</Button>
+                  </div>
+              }
 
-        {
-          location.pathname === '/review' ?
-            <div>
-              <Button onClick={cancel} color="error">Cancel</Button>
-              <Button className='report-button' onClick={next} color="secondary">SUBMIT</Button>
             </div>
-            :
-            <div>
-              <Button onClick={cancel} color="error">Cancel</Button>
-              <Button className='report-button' onClick={next} color="secondary">SAVE</Button>
-            </div>
-        }
-
-
-
-      </div>
-
+          </div>
+          :
+          <div>
+            <p>Loading...</p>
+          </div>
+      }
     </div>
   );
 }

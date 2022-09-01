@@ -8,9 +8,7 @@ function* editSaga() {
 // worker Saga: will be fired on "REVIEW_SAGA" actions
 function* review(action) {
   try {
-    // check incoming action for report data
     console.log(action.payload);
-    // get all updated public reports from server
     const response = yield axios.post('/api/edit', action.payload);
     console.log(response);
     yield put({type: 'RESET_FORM'});
