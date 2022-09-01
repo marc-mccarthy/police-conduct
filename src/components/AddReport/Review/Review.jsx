@@ -163,17 +163,14 @@ function Review() {
     console.log(report);
     console.log('formData:', formData);
     // send dispatch
-
-    if (location.pathname === '/review') {
+    if (location.pathname === '/review' && formData.understand === true && formData.verification === true) {
       dispatch({ type: "REVIEW_SAGA", payload: report });
-    } else {
-      dispatch({ type: "EDIT_REPORT_SAGA", payload: report });
-    }
-    // history.push to next page
-    if (location.pathname === '/review') {
       history.push("/submitted");
-    } else {
+    } else if(formData.understand === true && formData.verification === true) {
+      dispatch({ type: "EDIT_REPORT_SAGA", payload: report });
       history.push(`/reports/${id}`)
+    } else {
+      alert('You must agree to the data handling and verification.');
     }
   };
 
