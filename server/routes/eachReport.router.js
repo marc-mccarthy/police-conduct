@@ -7,9 +7,9 @@ const router = express.Router();
  * GET route template
  */
  router.get("/:id", (req, res) => {
-    let queryString = `SELECT * FROM "report" WHERE report.id = $1;`;
+    let queryString = `SELECT * FROM "report" WHERE "userID" = $1;`;
     console.log(req.params.id)
-    let values = [req.params.id];
+    let values = [req.user.id];
     pool
       .query(queryString, values)
       .then((result) => {
