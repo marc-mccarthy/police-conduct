@@ -12,6 +12,7 @@ const userRouter = require('./routes/user.router');
 const reportsRouter = require('./routes/reports.router');
 const eachReportRouter = require('./routes/eachReport.router.js');
 const deleteReportRouter = require('./routes/deleteReport.router.js');
+const editReportRouter = require('./routes/editReport.router');
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -29,8 +30,7 @@ app.use('/api/user', userRouter);
 app.use('/api/reports', reportsRouter);
 app.use('/api/each', eachReportRouter);
 app.use('/api/delete', deleteReportRouter);
-
-
+app.use('/api/edit', editReportRouter);
 
 // Serve static files
 app.use(express.static('build'));

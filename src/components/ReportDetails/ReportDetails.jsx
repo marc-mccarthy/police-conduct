@@ -17,6 +17,10 @@ function ReportDetails() {
     dispatch({ type: "EACH_USER_REPORT", payload: id });
   }, []);
 
+  const back = () => {
+    history.goBack() // https://stackoverflow.com/questions/39288915/detect-previous-path-in-react-router
+  }
+
   const delete_Report = async () => {
     if (
       window.confirm(
@@ -30,9 +34,51 @@ function ReportDetails() {
     }
   };
 
-  const PrivatePublicToggle = async () => {
-    dispatch({ type: "", payload: id });
-  }
+  const edit_Report = () => {
+    history.push(`/edit/${id}`)
+  };
+
+  const upDel = () => {
+    if (user.id === reports[0].userID) {
+      return (
+        <Grid
+          container
+          direction="row"
+          justifyContent="center"
+          alignItems="center"
+        >
+          <Box m={1}>
+            <Button onClick={back}>
+              Back
+            </Button>
+          </Box>
+          <Box m={1}>
+            <Button color="error" onClick={delete_Report}>
+              Delete
+            </Button>
+          </Box>
+          <Box m={1}>
+            <Button onClick={edit_Report} color="secondary">Edit</Button>
+          </Box>
+        </Grid>
+      );
+    } else {
+      return (
+        <Grid
+          container
+          direction="row"
+          justifyContent="center"
+          alignItems="center"
+        >
+          <Box mr={1}>
+            <Button onClick={back}>
+              Back
+            </Button>
+          </Box>
+        </Grid>
+      )
+    }
+  };
   return (
     <div className="ReportDetails">
       {reports.length === 0 ? (
@@ -89,21 +135,7 @@ function ReportDetails() {
               {reports[0].report_outcomes}
             </p>
           </div>
-          <Grid
-            container
-            direction="row"
-            justifyContent="center"
-            alignItems="center"
-          >
-            <Box mr={1}>
-              <Button color="error" onClick={delete_Report}>
-                Delete
-              </Button>
-            </Box>
-            <Box ml={1}>
-              <Button onClick={console.log("hello")}>Edit</Button>
-            </Box>
-          </Grid>
+          <div>{upDel()}</div>
         </div>
       )}
     </div>

@@ -5,7 +5,7 @@ function* getEachReport(action) {
   console.log("in getEach", action.payload);
   try {
     const response = yield axios.get(`api/each/${action.payload}`);
-    console.log("getGear:", response.data);
+    console.log("specific report:", response.data);
     yield put({ type: "EACH_REPORT", payload: response.data });
   } catch {
     console.log("err cannot get each Report");

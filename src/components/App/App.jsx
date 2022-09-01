@@ -104,6 +104,14 @@ function App() {
               <ReportDetails />
             </Route>
 
+            <ProtectedRoute
+              // logged in shows Review Page else shows LoginPage
+              exact
+              path="/edit/:id"
+            >
+              <Review />
+            </ProtectedRoute>
+
             <Route
               // shows guestProfile at all times (logged in or not)
               exact

@@ -106,16 +106,16 @@ function StartContent({ formData, setFormData }) {
           :
           <span>
             <p>First name:</p>
-            <input type='text' className='report-input' onChange={handleFirst} defaultValue={start.reporter_first} />
+            <input type='text' className='report-input' onChange={handleFirst} defaultValue={formData.first} />
 
             <p>Last name:</p>
-            <input type='text' className='report-input' onChange={handleLast} defaultValue={start.reporter_last} />
+            <input type='text' className='report-input' onChange={handleLast} defaultValue={formData.last} />
 
             <p>Email:</p>
-            <input type='text' className='report-input' onChange={handleEmail} defaultValue={start.reporter_email} />
+            <input type='text' className='report-input' onChange={handleEmail} defaultValue={formData.email} />
 
             <p>Phone number:</p>
-            <input type='text' className='report-input' onChange={handlePhone} defaultValue={start.reporter_phone} />
+            <input type='text' className='report-input' onChange={handlePhone} defaultValue={formData.phone} />
           </span>
       }
 
