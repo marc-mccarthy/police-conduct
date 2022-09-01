@@ -83,7 +83,7 @@ function ReportDetails() {
     <div className="ReportDetails">
       {reports.length === 0 ? (
         <div>
-          <h1 className="spinner"></h1>
+          <LoadingBar />
         </div>
       ) : (
         <div className="ReportItem">

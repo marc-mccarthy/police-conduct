@@ -6,7 +6,7 @@ import loadingBar from '../../images/loading-bar.gif';
 function LoadingBar() {
 
 	return (
-		<Box display='flex' justifyContent='center' alignItems='center'>
+        <Box mt={25} display="flex" justifyContent="center" alignItems="center">
 			<img src={loadingBar} alt='loading' />
 		</Box>
 	);
