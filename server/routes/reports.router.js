@@ -9,7 +9,7 @@ const router = express.Router();
 router.get('/fetchReports', (req, res) => {
   // GET route code here
   pool
-    .query(`SELECT * FROM "report" WHERE public = true;`)
+    .query(`SELECT * FROM "report" WHERE public = true ORDER BY id ASC;`)
     .then(result => {
       res.send(result.rows);
     })
