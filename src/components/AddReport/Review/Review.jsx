@@ -55,6 +55,7 @@ function Review() {
   })
 
   useEffect(() => {
+    console.log('is the review page now working?');
     if (location.pathname != '/review') {
       dispatch({ type: "EACH_USER_REPORT", payload: id });
     }
