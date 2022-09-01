@@ -18,7 +18,7 @@ function ReportDetails() {
   }, []);
 
   const back = () => {
-    history.push(`/viewReports`)
+    history.goBack() // https://stackoverflow.com/questions/39288915/detect-previous-path-in-react-router
   }
 
   const delete_Report = async () => {
