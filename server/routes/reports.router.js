@@ -1,13 +1,11 @@
-const { query } = require('express');
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
+// require sendgrid api logic
+const sendGrid = require('./sendGrid');
 
-/**
- * GET route template
- */
+// get every report
 router.get('/fetchReports', (req, res) => {
-  // GET route code here
   pool
     .query(`SELECT * FROM "report" WHERE public = true ORDER BY id ASC;`)
     .then(result => {
@@ -19,12 +17,8 @@ router.get('/fetchReports', (req, res) => {
     });
 });
 
-/**
- * POST route template
- */
+// add new report
 router.post('/addReport', (req, res) => {
-  // console.log our data
-  console.log(req.body);
   if (req.user) {
     // post query adding our form data for report if it's an logged in user
     pool
@@ -54,11 +48,12 @@ router.post('/addReport', (req, res) => {
           req.user.id, // $21
         ]
       )
-      .then((result) => {
-        console.log('New Report Id:', result.rows[0].id);
+      .then(result => {
+        // sendgrid api function
+        sendGrid(req.user, req.body);
+        // console.log('New Report Id:', result.rows[0].id);
         const newID = result.rows[0].id;
         res.send(newID.toString());
-        // res.sendStatus(201);
       })
       .catch(err => {
         console.log('Form submission failed: ', err);
@@ -93,8 +88,10 @@ router.post('/addReport', (req, res) => {
           req.body.reporter_phone, // $20
         ]
       )
-      .then((result) => {
-        console.log('New Report Id:', result.rows[0].id);
+      .then(result => {
+        // sendgrid api function
+        sendGrid(req.user, req.body);
+        // console.log('New Report Id:', result.rows[0].id);
         const newID = result.rows[0].id;
         res.send(newID.toString());
       })

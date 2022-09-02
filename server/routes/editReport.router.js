@@ -2,8 +2,8 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 
+// Update Report
 router.post('/', (req, res) => {
-  console.log(req.body);
   const queryString = `UPDATE report SET "anonymous"=$1, "public"=$2, "verification"=$3, "handle_info"=$4, "officer_first"=$5, "officer_last"=$6, "officer_rank"=$7, "officer_badge"=$8, "officer_department"=$9, "officer_anythingelse"=$10, "interaction_date"=$11, "interaction_time"=$12, "interaction_location"=$13, "reference_number"=$14, "interaction_summary"=$15, "report_outcomes"=$16, "reporter_first"=$17, "reporter_last"=$18, "reporter_email"=$19, "reporter_phone"=$20 WHERE "id"=$21 AND "userID"=${req.user.id}`;
   const values = [
     req.body.anonymous, // $1
