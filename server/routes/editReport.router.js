@@ -1,10 +1,13 @@
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
+// require sendgrid api logic
+const sendGrid = require('./sendGrid');
 
 // Update Report
 router.post('/', (req, res) => {
-  const queryString = `UPDATE report SET "anonymous"=$1, "public"=$2, "verification"=$3, "handle_info"=$4, "officer_first"=$5, "officer_last"=$6, "officer_rank"=$7, "officer_badge"=$8, "officer_department"=$9, "officer_anythingelse"=$10, "interaction_date"=$11, "interaction_time"=$12, "interaction_location"=$13, "reference_number"=$14, "interaction_summary"=$15, "report_outcomes"=$16, "reporter_first"=$17, "reporter_last"=$18, "reporter_email"=$19, "reporter_phone"=$20 WHERE "id"=$21 AND "userID"=${req.user.id}`;
+  const type = 'update'
+  const queryString = `UPDATE report SET "anonymous"=$1, "public"=$2, "verification"=$3, "handle_info"=$4, "officer_first"=$5, "officer_last"=$6, "officer_rank"=$7, "officer_badge"=$8, "officer_department"=$9, "officer_anythingelse"=$10, "interaction_date"=$11, "interaction_time"=$12, "interaction_location"=$13, "reference_number"=$14, "interaction_summary"=$15, "report_outcomes"=$16, "reporter_first"=$17, "reporter_last"=$18, "reporter_email"=$19, "reporter_phone"=$20 WHERE "id"=$21`;
   const values = [
     req.body.anonymous, // $1
     req.body.public, // $2
@@ -29,6 +32,8 @@ router.post('/', (req, res) => {
     req.body.id, // $21
   ];
   pool.query(queryString, values).then((result) => {
+    // sendgrid api function
+    sendGrid(req.user, req.body, type);
     res.sendStatus(200);
   }).catch((err) => {
     console.log(err);

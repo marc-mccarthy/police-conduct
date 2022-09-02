@@ -5,7 +5,8 @@ require('dotenv').config()
 const sgMail = require('@sendgrid/mail')
 sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 
-const sendGrid = (user, values) => {
+const sendGrid = (user, values, type) => {
+  const typeReport = type === 'add' ? 'New' : 'Updated'
   const currentDate = new Date();
   const message = {
     to: process.env.SENDGRID_API_KEY_EMAIL, // change to your recipient email
@@ -14,8 +15,8 @@ const sendGrid = (user, values) => {
     text: 'New Report added to PoliceConduct.org',
     html:
       `<div>
-        <h3>New Report has been added to PoliceConduct.org on: <b>${currentDate.getMonth() + 1}-${currentDate.getDate()}-${currentDate.getFullYear()}</b></h3>
-        <ul style="list-style-type: none; margin: 0; font-size: 14px">
+        <h3>${typeReport} report for the PoliceConduct.org platform on: <b>${currentDate.getMonth() + 1}-${currentDate.getDate()}-${currentDate.getFullYear()}</b></h3>
+        <ul style="list-style-type: none; padding: 5px; font-size: 14px; width: 50%;">
           <li><b>Username:</b> ${user === undefined ? 'Guest User' : user.username}</li>
           <li><b>Anonymous Request:</b> ${values.anonymous === true ? 'Yes' : 'No'}</li>
           <li><b>Public Report:</b> ${values.public === true ? 'Yes' : 'No'}</li>
@@ -32,13 +33,14 @@ const sendGrid = (user, values) => {
           <li><b>Officer Department:</b> ${values.officer_department}</li>
           <li><b>Officer Badge #:</b> ${values.officer_badge}</li>
           <li><b>Notes about Officer:</b> ${values.officer_anythingelse}</li>
+          <li><b>User Wanted Outcome(s):</b> ${values.report_outcomes}</li>
         </ul>
       </div>`,
   }
   sgMail
     .send(message)
     .then(() => {
-      console.log('Email has been sent to SendGrid Admin')
+      // console.log('Email has been sent to SendGrid Admin')
     })
     .catch((error) => {
       console.error(error)
