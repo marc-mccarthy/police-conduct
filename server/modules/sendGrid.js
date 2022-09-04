@@ -5,7 +5,7 @@ require('dotenv').config()
 const sgMail = require('@sendgrid/mail')
 sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 
-const sendGrid = (user, values, type) => {
+const sendGrid = (user, values, type, reportId) => {
   const typeReport = type === 'add' ? 'New' : 'Updated'
   const currentDate = new Date();
   const message = {
@@ -17,6 +17,7 @@ const sendGrid = (user, values, type) => {
       `<div>
         <h3>${typeReport} report for the PoliceConduct.org platform on: <b>${currentDate.getMonth() + 1}-${currentDate.getDate()}-${currentDate.getFullYear()}</b></h3>
         <ul style="list-style-type: none; padding: 5px; font-size: 14px; width: 50%;">
+          <li><b>Report #:</b> ${reportId}</li>
           <li><b>Username:</b> ${user === undefined ? 'Guest User' : user.username}</li>
           <li><b>Anonymous Request:</b> ${values.anonymous === true ? 'Yes' : 'No'}</li>
           <li><b>Public Report:</b> ${values.public === true ? 'Yes' : 'No'}</li>

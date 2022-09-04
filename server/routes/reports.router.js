@@ -2,7 +2,7 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 // require sendgrid api logic
-const sendGrid = require('./sendGrid');
+const sendGrid = require('../modules/sendGrid');
 
 // get every report
 router.get('/fetchReports', (req, res) => {
@@ -50,10 +50,10 @@ router.post('/addReport', (req, res) => {
       ]
     )
     .then(result => {
-      // sendgrid api function
-      sendGrid(req.user, req.body, type);
-      // console.log('New Report Id:', result.rows[0].id);
       const newID = result.rows[0].id;
+      // sendgrid api function
+      sendGrid(req.user, req.body, type, newID);
+      // console.log('New Report Id:', result.rows[0].id);
       res.send(newID.toString());
     })
     .catch(err => {
