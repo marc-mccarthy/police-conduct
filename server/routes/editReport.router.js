@@ -2,7 +2,7 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 // require sendgrid api logic
-const sendGrid = require('./sendGrid');
+const sendGrid = require('../modules/sendGrid');
 
 // Update Report
 router.post('/', (req, res) => {
