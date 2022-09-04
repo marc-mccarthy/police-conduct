@@ -7,17 +7,16 @@ import LoadingBar from '../LoadingBar/LoadingBar';
 import './ViewReports.css';
 
 function ViewReports() {
-  const user = useSelector((store) => store.user);
-  // const reports = useSelector((store) => {user.access > 0 ? store.adminReport : store.reports } );
-  const reports = useSelector((store) => store.adminReport);
+  const user = useSelector(store => store.user);
+  // const reports = useSelector(store => {{user.access > 0 ? store.adminReport : store.reports}} );
+  const reports = useSelector(store => {{if(user.access > 0){return store.adminReport} return store.reports}});
+
+  // const reports = useSelector(store => store.adminReport);
   const history = useHistory();
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    user.access > 0 ?
-      dispatch({ type: 'ADMIN_ALL_REPORTS' })
-    :
-      dispatch({ type: 'FETCH_PUBLIC_REPORTS'})
+  useEffect(() => {user.access > 0 ?
+      dispatch({ type: 'ADMIN_ALL_REPORTS' }) : dispatch({ type: 'FETCH_PUBLIC_REPORTS'})
   }, [user.access, dispatch]);
 
   const details = (id) => {

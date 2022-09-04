@@ -5,7 +5,7 @@ const router = express.Router();
 const sendGrid = require('./sendGrid');
 
 // get every report
-router.get('/fetchReports', (req, res) => {
+router.get('/fetchPublicReports', (req, res) => {
   pool
     .query(`SELECT * FROM "report" WHERE public = true ORDER BY id ASC;`)
     .then(result => {
