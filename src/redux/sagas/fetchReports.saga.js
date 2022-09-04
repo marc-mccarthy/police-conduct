@@ -1,15 +1,15 @@
 import { put, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
 
-function* fetchReportsSaga() {
-	yield takeLatest('FETCH_ALL_REPORTS', fetchReports);
+function* fetchPublicReportsSaga() {
+	yield takeLatest('FETCH_PUBLIC_REPORTS', fetchPublicReports);
 }
 
-// worker Saga: will be fired on "FETCH_ALL_REPORTS" actions
-function* fetchReports(action) {
+// worker Saga: will be fired on "FETCH_PUBLIC_REPORTS" actions
+function* fetchPublicReports(action) {
   try {
     // get all public reports from server
-    const reports = yield axios.get('/api/reports/fetchReports');
+    const reports = yield axios.get('/api/reports/fetchPublicReports');
     // send all public reports to redux store
     yield put({ type: 'SET_REPORTS', payload: reports.data });
   } catch (error) {
@@ -17,4 +17,4 @@ function* fetchReports(action) {
   }
 }
 
-export default fetchReportsSaga;
+export default fetchPublicReportsSaga;

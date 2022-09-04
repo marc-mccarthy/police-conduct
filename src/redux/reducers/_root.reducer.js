@@ -10,6 +10,7 @@ import reports from './reports.reducer';
 import eachReport from './eachReport.reducer';
 import reportID from './reportID.reducer';
 import allUserReport from './allUserReport.reducer';
+import adminReport from './adminReport.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -29,6 +30,7 @@ const rootReducer = combineReducers({
   eachReport, // TYPE: EACH_REPORT
   reportID, // TYPE: SHOW_ID
   allUserReport, // TYPE: ALL_REPORTS
+  adminReport,
 });
 
 export default rootReducer;

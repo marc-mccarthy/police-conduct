@@ -6,7 +6,7 @@ const router = express.Router();
 /**
  * GET route template
  */
-router.get('/fetchReports', (req, res) => {
+router.get('/fetchPublicReports', (req, res) => {
   // GET route code here
   pool
     .query(`SELECT * FROM "report" WHERE public = true ORDER BY id ASC;`)
