@@ -125,7 +125,7 @@ function Review() {
     if (location.pathname === '/review') {
       history.push("/home");
     } else {
-      history.push(`/reports/${id}`)
+      history.goBack();
     }
   }
 
@@ -168,7 +168,7 @@ function Review() {
       history.push("/submitted");
     } else if (formData.understand === true && formData.verification === true) {
       dispatch({ type: "EDIT_REPORT_SAGA", payload: report });
-      history.push(`/reports/${id}`)
+      history.goBack();
     } else {
       alert('You must agree to the data handling and verification.');
     }
