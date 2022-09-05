@@ -46,8 +46,8 @@ function Review() {
     officerBadge: '',
     officerDept: '',
     officerAnything: '',
-    interactionDate: null,
-    interactionTime: null,
+    interactionDate: '',
+    interactionTime: '',
     interactionLocation: '',
     referenceNumber: '',
     interactionSummary: '',
@@ -141,7 +141,7 @@ function Review() {
       officer_rank: formData.officerRank,
       officer_badge: formData.officerBadge,
       officer_department: formData.officerDept,
-      officer_anythingelse: formData.officerAnythingelse,
+      officer_anythingelse: formData.officerAnything,
       interaction_date: formData.interactionDate,
       interaction_time: formData.interactionTime,
       interaction_location: formData.interactionLocation,
@@ -154,23 +154,21 @@ function Review() {
       reporter_phone: formData.phone,
       id: id,
     };
-    if (report.interaction_time === "") {
-      report.interaction_time = null;
-    };
-    if (report.interaction_date === "") {
-      report.interaction_date = null;
-    };
-    console.log(report);
-    console.log('formData:', formData);
-    // send dispatch
-    if (location.pathname === '/review' && formData.understand === true && formData.verification === true) {
-      dispatch({ type: "REVIEW_SAGA", payload: report });
-      history.push("/submitted");
-    } else if (formData.understand === true && formData.verification === true) {
-      dispatch({ type: "EDIT_REPORT_SAGA", payload: report });
-      history.goBack();
+    if (formData.interactionTime === "" || formData.interactionDate === "") {
+      alert('Please provide both a time and a date.');
     } else {
-      alert('You must agree to the data handling and verification.');
+      console.log(report);
+      console.log('formData:', formData);
+      // send dispatch
+      if (location.pathname === '/review' && formData.understand === true && formData.verification === true) {
+        dispatch({ type: "REVIEW_SAGA", payload: report });
+        history.push("/submitted");
+      } else if (formData.understand === true && formData.verification === true) {
+        dispatch({ type: "EDIT_REPORT_SAGA", payload: report });
+        history.goBack();
+      } else {
+        alert('You must agree to the data handling and verification.');
+      }
     }
   };
 
