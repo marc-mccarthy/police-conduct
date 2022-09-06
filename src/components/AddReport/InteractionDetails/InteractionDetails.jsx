@@ -14,8 +14,8 @@ function InteractionDetails() {
   const history = useHistory();
 
   const [formData, setFormData] = useState({
-    interactionDate: null,
-    interactionTime: null,
+    interactionDate: '',
+    interactionTime: '',
     interactionLocation: '',
     referenceNumber: '',
   })
@@ -32,11 +32,15 @@ function InteractionDetails() {
       interaction_location: formData.interactionLocation,
       reference_number: formData.referenceNumber
     };
-    console.log(newInteractionDetails);
-    // send dispatch
-    dispatch({type: 'INTERACTION_DETAILS_SAGA', payload: newInteractionDetails});
-    // history.push to next page
-    history.push('/interaction-summary')
+    if (formData.interactionTime === "" || formData.interactionDate === "") {
+      alert('Please provide both a time and a date.');
+    } else {
+      console.log(newInteractionDetails);
+      // send dispatch
+      dispatch({ type: 'INTERACTION_DETAILS_SAGA', payload: newInteractionDetails });
+      // history.push to next page
+      history.push('/interaction-summary')
+    }
   }
 
   return (
