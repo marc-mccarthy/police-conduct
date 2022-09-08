@@ -22,12 +22,11 @@ function Nav() {
   });
 
   const handleProgressBar=()=>{
-    if(addReportPaths.includes(currentLocation)){
-      setShow(true);
-    }else {
-      setShow(false);
-    };
-  }
+    addReportPaths.includes(currentLocation) ?
+      setShow(true)
+      :
+      setShow(false)
+  };
 
   return (
     <div className="nav">

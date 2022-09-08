@@ -5,6 +5,7 @@ import { useHistory, useParams } from "react-router-dom";
 import { Box, Grid, Stack, Button } from "@mui/material";
 import LoadingBar from "../LoadingBar/LoadingBar";
 import "./ReportDetails.css";
+import { actionChannel } from "redux-saga/effects";
 
 function ReportDetails() {
   const user = useSelector((store) => store.user);
@@ -20,6 +21,12 @@ function ReportDetails() {
   const back = () => {
     history.goBack() // https://stackoverflow.com/questions/39288915/detect-previous-path-in-react-router
   }
+
+  const toggle_Privacy = async () => {
+    dispatch({ type: "TOGGLE_PRIVACY", payload: id });
+    alert('The privacy for this post has been changed.');
+    dispatch({ type: "EACH_USER_REPORT", payload: id });
+  };
 
   const delete_Report = async () => {
     if (
@@ -39,7 +46,55 @@ function ReportDetails() {
   };
 
   const upDel = () => {
-    if (user.id === reports[0].userID) {
+    if( user.access === 1 & user.id === reports[0].userID ) {
+      return (
+        <Grid
+          container
+          direction="row"
+          justifyContent="center"
+          alignItems="center"
+        >
+          <Box m={1}>
+            <Button onClick={back}>
+              Back
+            </Button>
+          </Box>
+          <Box m={1}>
+            <Button color="error" onClick={delete_Report}>
+              Delete
+            </Button>
+          </Box>
+          <Box m={1}>
+            <Button onClick={toggle_Privacy} color="secondary">
+              Make { !reports[0].public ? 'Public' : 'Private' }
+            </Button>
+          </Box>
+          <Box m={1}>
+            <Button onClick={edit_Report} color="secondary">Edit</Button>
+          </Box>
+        </Grid>
+      );
+    }else if( user.access === 1 ) {
+      return (
+        <Grid
+          container
+          direction="row"
+          justifyContent="center"
+          alignItems="center"
+        >
+          <Box m={1}>
+            <Button onClick={back}>
+              Back
+            </Button>
+          </Box>
+          <Box m={1}>
+            <Button onClick={toggle_Privacy} color="secondary">
+              Make { !reports[0].public ? 'Public' : 'Private' }
+            </Button>
+          </Box>
+        </Grid>
+      );
+    }else if(user.id === reports[0].userID){
       return (
         <Grid
           container
@@ -62,7 +117,7 @@ function ReportDetails() {
           </Box>
         </Grid>
       );
-    } else {
+    }else {
       return (
         <Grid
           container
@@ -79,6 +134,7 @@ function ReportDetails() {
       )
     }
   };
+
   return (
     <div className="ReportDetails">
       {reports.length === 0 ? (
@@ -133,6 +189,10 @@ function ReportDetails() {
             <p>
               <b>Desired Outcomes: </b>
               {reports[0].report_outcomes}
+            </p>
+            <p>
+              <b>Privacy: </b>
+              { reports[0].public ? 'Public' : 'Private' }
             </p>
           </div>
           <div>{upDel()}</div>

@@ -12,8 +12,18 @@ function* getEachReport(action) {
   }
 }
 
+function* privacyChange(action) {
+      try {
+        const response = yield axios.put(`api/each/privacy/${action.payload}`);
+        getEachReport();
+      } catch (error) {
+        console.log('Error with PrivacyChange in eachReportSaga:', error);
+      }
+  }
+
 function* eachReportSaga() {
   yield takeLatest("EACH_USER_REPORT", getEachReport);
+  yield takeLatest('TOGGLE_PRIVACY', privacyChange);
 }
 
 export default eachReportSaga;
