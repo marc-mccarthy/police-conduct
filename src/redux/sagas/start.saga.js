@@ -8,7 +8,7 @@ function* startSaga() {
 function* start(action) {
   try {
     // check incoming action for report data
-    console.log(action.payload);
+    // console.log(action.payload);
     // get all updated public reports from server
     yield put({ type: 'START_REDUCER', payload: action.payload });
   } catch (error) {
