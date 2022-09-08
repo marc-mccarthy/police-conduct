@@ -8,7 +8,6 @@ function OfficerDetailsContent({ formData, setFormData }) {
   const officerDetails = useSelector(store => store.officerDetailsReducer);
 
   useEffect(() => {
-    console.log(formData);
   }, [formData]);
 
   useEffect(() => {
