@@ -126,7 +126,7 @@ function StartContent({ formData, setFormData }) {
       <p><Checkbox sx={{ p: 0 }} onChange={handleVerification} checked={formData.verification} /> *Check this box signifying you are NOT submitting this form on behalf of someone else. (*Required)</p>
 
       <h3>How we handle your information</h3>
-      <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+      <p>By submitting this form, we will automatically send your report to the correct Internal Affairs office. Any information you elect to include in the form will be passed along. If you complete this form as a guest, you will not be able to edit the report once it is submitted. If you complete this form as a logged in user, your submitted report will be available to you in your Profile page, where you are able to edit or delete your report. If you choose to make your report public, it will be viewable by anyone in the View Reports page. All reports are saved in a database but will not be shared or made public unless determined by the individual user.</p>
       <p><Checkbox sx={{ p: 0 }} onChange={handleUnderstand} checked={formData.understand} /> *I understand how you handle my information. (*Required) </p>
 
     </>

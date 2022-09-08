@@ -33,7 +33,7 @@ router.post('/', (req, res) => {
   ];
   pool.query(queryString, values).then((result) => {
     // sendgrid api function
-    sendGrid(req.user, req.body, type);
+    sendGrid(req.user, req.body, type, req.body.id);
     res.sendStatus(200);
   }).catch((err) => {
     console.log(err);

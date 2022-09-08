@@ -11,8 +11,10 @@ const sendGrid = (user, values, type, reportId) => {
   const message = {
     to: process.env.SENDGRID_API_KEY_EMAIL, // change to your recipient email
     from: process.env.SENDGRID_API_KEY_EMAIL, // change to your verified sender email
-    subject: `New Report #${reportId} added to PoliceConduct.org`,
-    text: `New Report #${reportId} added to PoliceConduct.org`,
+
+    subject: `${typeReport} Report #${reportId} added to PoliceConduct.org`,
+    text: `${typeReport} Report #${reportId} added to PoliceConduct.org`,
+
     html:
       `<div>
         <h3>${typeReport} report for the PoliceConduct.org platform on: <b>${currentDate.getMonth() + 1}-${currentDate.getDate()}-${currentDate.getFullYear()}</b></h3>
