@@ -35,7 +35,6 @@ function OfficerDetails() {
       officer_department: formData.officerDept,
       officer_anythingelse: formData.officerAnything,
     };
-    console.log(newOfficerDetails);
     // send dispatch
     dispatch({ type: 'OFFICER_DETAILS_SAGA', payload: newOfficerDetails });
     // history.push to next page

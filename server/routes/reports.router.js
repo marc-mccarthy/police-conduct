@@ -51,9 +51,7 @@ router.post('/addReport', (req, res) => {
     )
     .then(result => {
       const newID = result.rows[0].id;
-      // sendgrid api function
       sendGrid(req.user, req.body, type, newID);
-      // console.log('New Report Id:', result.rows[0].id);
       res.send(newID.toString());
     })
     .catch(err => {

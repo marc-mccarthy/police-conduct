@@ -26,7 +26,6 @@ function Outcomes() {
     let newOutcomes = {
       report_outcomes: formData.outcomes,
     };
-    console.log(newOutcomes);
     // send dispatch
     dispatch({ type: 'OUTCOMES_SAGA', payload: newOutcomes });
     // history.push to next page

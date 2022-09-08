@@ -35,7 +35,6 @@ function Start() {
       reporter_email: formData.email,
       reporter_phone: formData.phone,
     };
-    console.log(newStart);
     if(formData.understand === true && formData.verification === true) {
       dispatch({type: 'START_SAGA', payload: newStart});
       history.push('/officer-details');

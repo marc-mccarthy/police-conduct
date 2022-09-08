@@ -9,7 +9,6 @@ function StartContent({ formData, setFormData }) {
   const start = useSelector(store => store.startReducer);
 
   useEffect(() => {
-    console.log(formData);
   }, [formData]);
 
   useEffect(() => {

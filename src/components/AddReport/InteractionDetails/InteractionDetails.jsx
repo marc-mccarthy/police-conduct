@@ -35,7 +35,6 @@ function InteractionDetails() {
     if (formData.interactionTime === "" || formData.interactionDate === "") {
       alert('Please provide both a time and a date.');
     } else {
-      console.log(newInteractionDetails);
       // send dispatch
       dispatch({ type: 'INTERACTION_DETAILS_SAGA', payload: newInteractionDetails });
       // history.push to next page
