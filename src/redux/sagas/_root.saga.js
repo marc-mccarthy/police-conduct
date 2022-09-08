@@ -13,8 +13,7 @@ import eachReportSaga from './eachReport.saga';
 import deleteReportSaga from './deleteReport.saga';
 import editSaga from './edit.saga';
 import allUserReportSaga from './allUserReport.saga';
-import visibilitySaga from './visibility.saga';
-import adminReportSaga from './adminReport';
+import adminReportSaga from './adminReport.saga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -39,7 +38,6 @@ export default function* rootSaga() {
     deleteReportSaga(),
     editSaga(),
     allUserReportSaga(),
-    visibilitySaga(),
     adminReportSaga(),
   ]);
 }

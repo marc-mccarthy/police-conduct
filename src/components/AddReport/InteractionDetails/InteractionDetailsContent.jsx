@@ -55,10 +55,10 @@ function InteractionDetailsContent({ formData, setFormData }) {
     <>
       <h2>Interaction Details</h2>
 
-      <p>Date of interaction:</p>
+      <p>*Date of interaction (*Required):</p>
       <input className='report-input' type="date" onChange={handleDate} defaultValue={formData.interactionDate} />
 
-      <p>Time of interaction:</p>
+      <p>*Time of interaction (*Required):</p>
       <input type='time' className='report-input' onChange={handleTime} defaultValue={formData.interactionTime} />
 
       <p>Location of interaction:</p>

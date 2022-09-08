@@ -15,7 +15,7 @@ const deleteReportRouter = require('./routes/deleteReport.router.js');
 const editReportRouter = require('./routes/editReport.router');
 const allUserReportRouter = require('./routes/allUserReport.router');
 const adminRouter = require('./routes/admin.router');
-const privacyReportRouter = require('./routes/privacyReport.router.js');
+// const privacyReportRouter = require('./routes/privacyReport.router.js');
 // Body parser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -35,7 +35,7 @@ app.use('/api/delete', deleteReportRouter);
 app.use('/api/edit', editReportRouter);
 app.use('/api/all', allUserReportRouter);
 app.use('/api/admin', adminRouter);
-app.use('/api/privacy', privacyReportRouter);
+// app.use('/api/privacy', privacyReportRouter);
 
 // Serve static files
 app.use(express.static('build'));

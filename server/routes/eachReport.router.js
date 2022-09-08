@@ -18,4 +18,17 @@ router.get("/:id", (req, res) => {
     });
 });
 
+router.put('/privacy/:id', (req, res) => {
+  const queryString = `UPDATE "report" SET "public" = NOT "public" WHERE "id"=$1;`;
+  const values = [req.params.id];
+  pool
+    .query(queryString, values)
+    .then((result) => {
+  })
+    .catch((err) => {
+      console.log(err);
+      res.sendStatus(500);
+  })
+});
+
 module.exports = router;
