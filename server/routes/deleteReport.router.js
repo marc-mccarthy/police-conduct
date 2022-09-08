@@ -4,7 +4,6 @@ const router = express.Router();
 
 // Delete Report
 router.delete("/:id", (req, res) => {
-  // console.log(req.params);
   const queryString = `DELETE FROM "report" WHERE report.id = $1;`;
   const values = [req.params.id];
   pool

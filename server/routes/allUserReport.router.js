@@ -5,7 +5,6 @@ const router = express.Router();
 // GET all Users Reports
 router.get("/:id", (req, res) => {
   let queryString = `SELECT * FROM "report" WHERE "userID" = $1 ORDER BY id ASC;`;
-  // console.log(req.user.id)
   let values = [req.user.id];
   pool
     .query(queryString, values)

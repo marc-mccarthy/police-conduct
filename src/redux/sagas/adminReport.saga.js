@@ -8,7 +8,6 @@ function* fetchAllReports(action) {
     const reports = yield axios.get('/api/admin/fetchAllReports');
     // send all reports to redux store
     yield put({ type: 'SET_ALL_REPORTS', payload: reports.data });
-    console.log(reports.data);
   } catch (error) {
     console.log('Error with adminReportSaga:', error);
   }

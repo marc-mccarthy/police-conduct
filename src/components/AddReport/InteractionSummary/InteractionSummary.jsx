@@ -25,7 +25,6 @@ function InteractionSummary() {
     let newInteractionSummary = {
       interaction_summary: formData.interactionSummary
     };
-    console.log(newInteractionSummary);
     // send dispatch
     dispatch({ type: 'INTERACTION_SUMMARY_SAGA', payload: newInteractionSummary });
     // history.push to next page

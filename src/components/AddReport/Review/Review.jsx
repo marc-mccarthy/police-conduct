@@ -61,7 +61,6 @@ function Review() {
   }, []);
 
   useEffect(() => {
-    console.log('report from report reducer:', report);
   }, [report]);
 
   useEffect(() => {
@@ -157,8 +156,6 @@ function Review() {
     if (formData.interactionTime === "" || formData.interactionDate === "") {
       alert('Please provide both a time and a date.');
     } else {
-      console.log(report);
-      console.log('formData:', formData);
       // send dispatch
       if (location.pathname === '/review' && formData.understand === true && formData.verification === true) {
         dispatch({ type: "REVIEW_SAGA", payload: report });

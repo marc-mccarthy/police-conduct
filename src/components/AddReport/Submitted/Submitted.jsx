@@ -13,7 +13,6 @@ function Submitted() {
   const reportID = useSelector(store => store.reportID);
 
   useEffect(() => {
-    console.log();
   }, []);
 
   return (
