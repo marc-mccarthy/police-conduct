@@ -11,7 +11,6 @@ CREATE TABLE "user" (
 
 INSERT INTO "user" ("id", "username", "password", "access") VALUES (5, 'Admin', '$2a$10$0o4ED.2HiXKw2NLt9QysvuZJVvHYeEMTqDbULurONkuc.yRyjPR6y', 1);
 
-
 CREATE TABLE "report" (
     "id" SERIAL PRIMARY KEY,
     "anonymous" BOOLEAN  ,
