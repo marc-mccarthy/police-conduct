@@ -250,9 +250,14 @@ Project Link: [PoliceConduct.org](https://github.com/marc-mccarthy/police-conduc
 
 ## Acknowledgments
 
-Creator: Dale Lotts
-Developers: Frank Raso, Marc McCarthy, Pete Hall and Robert Thao
-Prime Digital Academy
+Creator:
+- Dale Lotts
+
+Developers:
+- Frank Raso,
+- Marc McCarthy
+- Pete Hall and
+- Robert Thao
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
