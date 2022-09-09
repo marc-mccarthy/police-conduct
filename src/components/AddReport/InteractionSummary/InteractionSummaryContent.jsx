@@ -1,8 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-
 import { TextField } from '@mui/material';
-import { useEffect } from 'react';
 
 function InteractionSummaryContent({ formData, setFormData }) {
 
@@ -27,14 +25,14 @@ function InteractionSummaryContent({ formData, setFormData }) {
     })
   }
 
-  const wellWrittenReport = `1. Be Specific: Provide as much factual evidence as you can. Include dates, times, names, locations and any other information relevant to the situation.  For example, “At 10:30am on April 10, I was driving South on Main Street…\” 
-  
-  2. Be Clear: Your reader will not know anything about you or the scenario, so provide enough details so someone reading your REPORT can picture and understand the scenario without having been there. 
-  
-  3. Be Objective: Include observable information instead of subjective opinion.  For example, don’t say “he was rude”.  Instead, say, “Whenever I tried to say something, he interrupted me, did not let me finish talking, and started yelling at me.” 
-  
-  4. Leave out some information: Leave out links and personal information because the description of events may become public information. 
-  
+  const wellWrittenReport = `1. Be Specific: Provide as much factual evidence as you can. Include dates, times, names, locations and any other information relevant to the situation.  For example, “At 10:30am on April 10, I was driving South on Main Street…\”
+
+  2. Be Clear: Your reader will not know anything about you or the scenario, so provide enough details so someone reading your REPORT can picture and understand the scenario without having been there.
+
+  3. Be Objective: Include observable information instead of subjective opinion.  For example, don’t say “he was rude”.  Instead, say, “Whenever I tried to say something, he interrupted me, did not let me finish talking, and started yelling at me.”
+
+  4. Leave out some information: Leave out links and personal information because the description of events may become public information.
+
   5. Keep it civil: If you’ve had a negative experience, instead of pointing an angry finger, a more credible approach is to adopt a calm tone. Explain what took place and leave it to the reader to draw their own conclusions. This might also mean that the Police Department in question will be more willing to engage with you to address the EXPERIENCE.`;
 
   return (

@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-
 import { Button } from '@mui/material';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory, useLocation, useParams } from 'react-router-dom';
-
 import StartContent from '../Start/StartContent';
 import OfficerDetailsContent from '../OfficerDetails/OfficerDetailsContent';
 import InteractionDetailsContent from '../InteractionDetails/InteractionDetailsContent';

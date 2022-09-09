@@ -1,14 +1,11 @@
-import React from 'react';
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { useState, useEffect } from 'react';
-import { useHistory, useParams } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { Box, Button } from '@mui/material';
-import LoadingBar from '../LoadingBar/LoadingBar';
 import './Profile.css';
 
 function Profile() {
   const allReports = useSelector((store) => store.allUserReport);
-  const reports = useSelector((store) => store.reports);
   const user = useSelector((store) => store.user);
   const history = useHistory();
   const dispatch = useDispatch();

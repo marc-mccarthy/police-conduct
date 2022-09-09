@@ -1,8 +1,6 @@
-import React from 'react';
+import React, { useEffect } from "react";
 import { useSelector } from 'react-redux';
-
 import { Checkbox } from '@mui/material';
-import { useEffect } from 'react';
 
 function StartContent({ formData, setFormData }) {
 

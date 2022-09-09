@@ -1,11 +1,7 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
-
 import { Button } from '@mui/material';
-import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-
 import OutcomesContent from './OutcomesContent';
 
 function Outcomes() {

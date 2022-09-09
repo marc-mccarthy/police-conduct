@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import LogOutButton from '../LogOutButton/LogOutButton';
+import { useLocation } from 'react-router-dom';
 import './Nav.css';
 import { useSelector } from 'react-redux';
 import SideBar from '../SideBar/SideBar';

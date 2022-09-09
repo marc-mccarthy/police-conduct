@@ -1,7 +1,5 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-
-import { useEffect } from 'react';
 
 function OfficerDetailsContent({ formData, setFormData }) {
 

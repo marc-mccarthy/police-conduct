@@ -1,12 +1,10 @@
 import React from 'react';
-import {useSelector} from 'react-redux';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import { experimentalStyled as styled } from '@mui/material/styles';
 import { useLocation } from 'react-router-dom';
 
-function ProgressBar(props) {
-  const store = useSelector((store) => store);
+function ProgressBar() {
   const location = useLocation();
 
   // displays addReport steps and their respective location.pathname
@@ -32,11 +30,11 @@ function ProgressBar(props) {
       page:'Outcomes',
       path:'/outcomes'
     },
-    { 
+    {
       page:'Review',
       path:'/review'
     },
-    { 
+    {
       page:'Submitted',
       path:'/submitted'
     }
@@ -69,13 +67,13 @@ function ProgressBar(props) {
             return (
               <Grid item xs='auto' key={index}>
                 <Current>{eachPage.page}</Current>
-              </Grid> 
+              </Grid>
             )
           }else {
             return (
               <Grid item xs='auto' key={index}>
                 <Other>{eachPage.page}</Other>
-              </Grid> 
+              </Grid>
             )
           }
         })}
