@@ -4,7 +4,6 @@
 
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]](https://linkedin.com/in/dalelotts)
-[![Gmail][gmail-shield]](mailto:dale.lotts@gmail.com)
 
 <!-- PROJECT LOGO -->
 
@@ -229,7 +228,7 @@ Don't forget to give the project a star! Thanks again!
 
 ## Contact
 
-Dale Lotts - [LinkedIn](https://linkedin.com/in/dalelotts) - [Gmail](mailto:dale.lotts@gmail.com)
+Dale Lotts - [LinkedIn](https://linkedin.com/in/dalelotts)
 
 Project Link: [PoliceConduct.org](https://github.com/marc-mccarthy/police-conduct)
 
