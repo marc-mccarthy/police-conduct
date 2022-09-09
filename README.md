@@ -126,8 +126,9 @@ PoliceConduct.org is an online application that allows citizens to easily comple
     DATABASE_URL=postgres://username:password@host:port/database_name
     ```
     Helpful Links:
-    [Heroku Deployment](https://www.freecodecamp.org/news/how-to-deploy-an-application-to-heroku) and
-    [Heroku Postgres](https://devcenter.heroku.com/articles/heroku-postgresql)
+    - [Heroku Deployment](https://www.freecodecamp.org/news/how-to-deploy-an-application-to-heroku)
+    - [Heroku Postgres](https://devcenter.heroku.com/articles/heroku-postgresql)
+    - [Heroku Environment Variables](https://catalins.tech/heroku-environment-variables)
     <br/><br/><br/>
 
 ### Installation
