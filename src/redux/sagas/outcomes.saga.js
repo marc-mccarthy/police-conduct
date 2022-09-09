@@ -8,7 +8,6 @@ function* outcomesSaga() {
 function* outcomes(action) {
   try {
     // check incoming action for report data
-    console.log(action.payload);
     // get all updated public reports from server
     yield put({ type: 'OUTCOMES_REDUCER', payload: action.payload });
   } catch (error) {

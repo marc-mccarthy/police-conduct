@@ -8,7 +8,6 @@ function* interactionSummarySaga() {
 function* interactionSummary(action) {
   try {
     // check incoming action for report data
-    console.log(action.payload);
     // get all updated public reports from server
     yield put({ type: 'INTERACTION_SUMMARY_REDUCER', payload: action.payload });
   } catch (error) {

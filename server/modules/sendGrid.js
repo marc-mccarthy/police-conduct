@@ -43,7 +43,6 @@ const sendGrid = (user, values, type, reportId) => {
   sgMail
     .send(message)
     .then(() => {
-      // console.log('Email has been sent to SendGrid Admin')
     })
     .catch((error) => {
       console.error(error)

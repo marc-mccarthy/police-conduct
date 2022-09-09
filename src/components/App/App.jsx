@@ -5,14 +5,9 @@ import {
   Route,
   Switch,
 } from 'react-router-dom';
-
-
 import { useDispatch, useSelector } from 'react-redux';
-
 import Nav from '../Nav/Nav';
-
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
-
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
@@ -23,16 +18,13 @@ import InteractionSummary from '../AddReport/InteractionSummary/InteractionSumma
 import Outcomes from '../AddReport/Outcomes/Outcomes';
 import Review from '../AddReport/Review/Review';
 import Submitted from '../AddReport/Submitted/Submitted';
-
 import './App.css';
-import SideBar from '../SideBar/SideBar';
 import LogOutRoute from '../LogOutRoute/LogOutRoute';
 import Profile from '../Profile/Profile';
 import GuestProfile from '../GuestProfile/GuestProfile';
 import ViewReports from '../ViewReports/ViewReports';
 import Page404 from '../Page404/Page404';
 import ReportDetails from '../ReportDetails/ReportDetails';
-
 import { createTheme, ThemeProvider } from '@mui/material';
 
 function App() {

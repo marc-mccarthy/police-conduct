@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import { SidebarData } from './SidebarData';
 import './SideBar.css';
 import { IconContext } from 'react-icons';
-import LogOutButton from '../LogOutButton/LogOutButton';
 import { useSelector } from 'react-redux';
 
 function SideBar() {

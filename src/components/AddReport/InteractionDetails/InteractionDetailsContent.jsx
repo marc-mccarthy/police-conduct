@@ -1,14 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-
-import { useEffect } from 'react';
 
 function InteractionDetailsContent({ formData, setFormData }) {
 
   const interactionDetails = useSelector(store => store.interactionDetailsReducer);
 
   useEffect(() => {
-    console.log(formData);
   }, [formData]);
 
   // this useEffect allows us to go back, forward, and back again and the defaultValue will stay correct

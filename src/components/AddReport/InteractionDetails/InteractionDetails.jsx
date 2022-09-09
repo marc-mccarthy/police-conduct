@@ -1,11 +1,7 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
-
 import { Button } from '@mui/material';
-import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-
 import InteractionDetailsContent from './InteractionDetailsContent';
 
 function InteractionDetails() {
@@ -35,7 +31,6 @@ function InteractionDetails() {
     if (formData.interactionTime === "" || formData.interactionDate === "") {
       alert('Please provide both a time and a date.');
     } else {
-      console.log(newInteractionDetails);
       // send dispatch
       dispatch({ type: 'INTERACTION_DETAILS_SAGA', payload: newInteractionDetails });
       // history.push to next page

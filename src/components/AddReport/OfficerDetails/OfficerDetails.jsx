@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
-
 import { Button } from '@mui/material';
-import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import OfficerDetailsContent from './OfficerDetailsContent';
@@ -35,7 +32,6 @@ function OfficerDetails() {
       officer_department: formData.officerDept,
       officer_anythingelse: formData.officerAnything,
     };
-    console.log(newOfficerDetails);
     // send dispatch
     dispatch({ type: 'OFFICER_DETAILS_SAGA', payload: newOfficerDetails });
     // history.push to next page

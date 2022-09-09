@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-
 import { Button } from '@mui/material';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory, useLocation, useParams } from 'react-router-dom';
-
 import StartContent from '../Start/StartContent';
 import OfficerDetailsContent from '../OfficerDetails/OfficerDetailsContent';
 import InteractionDetailsContent from '../InteractionDetails/InteractionDetailsContent';
@@ -61,7 +59,6 @@ function Review() {
   }, []);
 
   useEffect(() => {
-    console.log('report from report reducer:', report);
   }, [report]);
 
   useEffect(() => {
@@ -157,8 +154,6 @@ function Review() {
     if (formData.interactionTime === "" || formData.interactionDate === "") {
       alert('Please provide both a time and a date.');
     } else {
-      console.log(report);
-      console.log('formData:', formData);
       // send dispatch
       if (location.pathname === '/review' && formData.understand === true && formData.verification === true) {
         dispatch({ type: "REVIEW_SAGA", payload: report });

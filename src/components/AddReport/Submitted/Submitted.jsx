@@ -1,10 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-
 import { Button } from '@mui/material';
-import { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-
 
 function Submitted() {
 
@@ -13,7 +10,6 @@ function Submitted() {
   const reportID = useSelector(store => store.reportID);
 
   useEffect(() => {
-    console.log();
   }, []);
 
   return (
@@ -34,7 +30,7 @@ function Submitted() {
         <br></br>
 
         <Button onClick={() => {history.push('/start')}}>SUBMIT ANOTHER REPORT</Button>
-        
+
         <br></br>
         <br></br>
 

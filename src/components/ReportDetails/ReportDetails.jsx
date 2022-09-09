@@ -1,11 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useState, useEffect } from "react";
 import { useHistory, useParams } from "react-router-dom";
-import { Box, Grid, Stack, Button } from "@mui/material";
+import { Box, Grid, Button } from "@mui/material";
 import LoadingBar from "../LoadingBar/LoadingBar";
 import "./ReportDetails.css";
-import { actionChannel } from "redux-saga/effects";
 
 function ReportDetails() {
   const user = useSelector((store) => store.user);

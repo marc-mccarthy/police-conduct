@@ -1,11 +1,7 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
-
 import { Button } from '@mui/material';
-import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-
 import StartContent from './StartContent';
 
 function Start() {
@@ -35,7 +31,6 @@ function Start() {
       reporter_email: formData.email,
       reporter_phone: formData.phone,
     };
-    console.log(newStart);
     if(formData.understand === true && formData.verification === true) {
       dispatch({type: 'START_SAGA', payload: newStart});
       history.push('/officer-details');
@@ -54,7 +49,7 @@ function Start() {
           <Button className='report-button' onClick={next}>NEXT</Button>
 
         </div>
-        
+
       </div>
     );
 }
